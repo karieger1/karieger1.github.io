@@ -1,0 +1,341 @@
+.mainheading {
+	font-family: Courier;
+	
+	/*background-image: url("../images/background.jpg")
+*/
+}
+
+#navbar {
+	width: 100%;
+	position: fixed;
+	height:100px;
+	 top: 0;
+  	left: 0;
+  	z-index: 999;
+}
+.page-scroll {
+	 color: white !important;
+}
+
+
+#logo {
+	padding-top: 3em;
+	text-shadow:#fff 1px 3px 0, #000 0 -1px 0;
+	font-size: 72px;
+	letter-spacing: -2px;
+	color: white;
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
+}
+
+#tmt {
+	letter-spacing: -1px;
+	margin-bottom: 2em;
+	color:white;
+	font-size: 22px;	
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
+}
+
+#button1 {
+	display: inline-block;
+	background-color: transparent; !important;
+	float: left;
+	border: solid white 3px;
+	background-color: black;
+	opacity: 0.7;
+	padding: 20px;
+	width: 220px;
+	height: 70px;
+	margin-left: 10px;	
+}
+
+#button1:hover {
+	background-color: turquoise;
+	font-weight: bolder;
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
+}
+
+#button2 {
+	display: inline-block;
+	background-color: transparent; !important;	
+	float: right;	
+	border: solid white 3px;
+	background-color: black;
+	opacity: 0.7;
+	padding: 20px;
+	width: 220px;
+	height: 70px;
+	margin-right: 10px;	
+
+}
+
+#button2:hover {
+	background-color: turquoise;
+	font-weight: bolder;
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
+}
+
+#navbar {
+	color: white;
+	background-color: black;
+	opacity: 0.9;
+	width:100%;
+	  margin:0;
+   padding:0;
+   position:fixed;
+   top:0;
+   z-index:99;
+	height: 3em;
+	padding-bottom: 1em;
+	border:solid white 1px;
+	border-radius: 10px;
+}
+
+#navpills {
+	font-family: Courier New;
+	font-weight: bold;
+	font-color: white;
+	
+
+}
+.goalscircle {
+	margin-top: 20px;
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
+
+}
+
+#goalsHeading {
+	color:white;
+	font-size:22px;
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
+	clear: both;
+	margin-top: 120px;
+	margin-bottom: 32px;
+	margin-left: 80px;
+
+}
+
+/*.goals {
+	margin-top: 70px;
+	font-size:14px;
+	border: solid white 2px;
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	
+	padding-top: 60px;
+	clear: both;
+	color: white;
+
+}*/
+
+#goal1 {
+	display: inline-block;
+	margin-right: 30px;
+	font-size:18px;
+	border: solid white 2px;
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	padding-top: 36px;
+	clear: both;
+	color: white;
+	margin-left: 80px;
+	padding-left: 30px;
+	background-color: teal;
+	opacity: 0.9;
+}
+
+#goal2 {
+	display: inline-block;
+	
+	font-size:18px;
+	border: solid white 2px;
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	padding-top: 36px;
+	clear: both;
+	color: white;
+	padding-left: 30px;
+	background-color: teal;
+	opacity: 0.9;
+	
+}
+
+#goal3 {
+	display: inline-block;
+	margin-right: 30px;
+	font-size:18px;
+	border: solid white 2px;
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	padding-top: 36px;
+	clear: both;
+	color: white;
+	margin-left: 30px;
+	padding-left: 34px;
+	background-color: teal;
+	opacity: 0.9;
+	
+}
+
+.goalscircle {
+	padding-bottom: 50px;
+}
+
+.aboutUsSection {
+	color: white;
+	padding-top: 4em;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: black;
+	opacity: 0.6;
+}
+
+#aboutme {
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
+}
+
+h3 {
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
+}
+
+#mePic {
+	height: 9em;
+	width: 9em;
+	opacity: 1.0 !important;
+	float: left;
+	margin-right: 10px;
+	/*margin-left: 10px;*/
+}
+
+.meAbout {
+	/*margin-left: 10px;*/
+	overflow: hidden;
+}
+
+.listSuccess {
+	color: white;
+	padding-top: 4em;
+	/*background-image: url("../images/background.jpg");*/
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.listingform {
+	/*background-image: url("../images/background.jpg");*/
+	background-size: 100% auto;
+	color: white;
+
+}
+
+#listyouritem {
+	margin-top: 60px;
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
+}
+
+#aboutyou {
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
+}
+
+#listitem {
+	padding-top: 60px;
+	margin: 0 auto;
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
+}
+
+#submitlistingbutton {
+	width:200px;
+	height: 50px;
+	margin-bottom: 5em;
+	margin-top: 2em;
+	border: solid white 1px;
+	background-color: grey;
+	font-weight: bolder;
+}
+
+.form-group {
+	font-weight: bolder;
+	font-size: 15px;
+}
+
+#listform {
+	padding-top: 40px;
+	border:solid white 1px;
+	line-height: 30px;
+}
+
+
+
+#map-canvas {
+        width: 500px;
+        height: 400px;
+        background-color: #CCC;
+      }
+
+.googlemap {
+	padding-top: 100px;
+	width:80%;
+	height: 400px;
+	margin: 0 auto;
+}
+
+#listbutton {
+	margin-top: 20px;
+}
