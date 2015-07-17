@@ -62,7 +62,8 @@ var App = Backbone.Router.extend({
 	},
 	findThingsList: function() {
 		React.render(
-			<FindThingsList />,
+			<FindThingsList listing ={listing}
+			myApp={myApp} />,
 			containerEl
 		);
 	},

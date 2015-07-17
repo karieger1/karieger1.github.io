@@ -34213,7 +34213,7 @@ module.exports = React.createClass({
                     { className: "nav nav-pills", id: "navpills" },
                     React.createElement(
                         "li",
-                        { role: "presentation" },
+                        { role: "presentation", id: "homenav" },
                         React.createElement(
                             "a",
                             { href: "#home" },
@@ -34222,7 +34222,7 @@ module.exports = React.createClass({
                     ),
                     React.createElement(
                         "li",
-                        { role: "presentation" },
+                        { role: "presentation", id: "findnav" },
                         React.createElement(
                             "a",
                             { href: "#findThingsMap" },
@@ -34231,7 +34231,7 @@ module.exports = React.createClass({
                     ),
                     React.createElement(
                         "li",
-                        { role: "presentation" },
+                        { role: "presentation", id: "listnav" },
                         React.createElement(
                             "a",
                             { href: "#listThings" },
@@ -34240,7 +34240,7 @@ module.exports = React.createClass({
                     ),
                     React.createElement(
                         "li",
-                        { role: "presentation" },
+                        { role: "presentation", id: "aboutnav" },
                         React.createElement(
                             "a",
                             { href: "#aboutUs" },
@@ -34308,7 +34308,8 @@ var App = Backbone.Router.extend({
 		containerEl);
 	},
 	findThingsList: function findThingsList() {
-		React.render(React.createElement(FindThingsList, null), containerEl);
+		React.render(React.createElement(FindThingsList, { listing: listing,
+			myApp: myApp }), containerEl);
 	},
 	itemDetail: function itemDetail() {
 		React.render(React.createElement(ItemDetail, null), containerEl);
