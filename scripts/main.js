@@ -14,7 +14,7 @@ var FindThingsMap = require("./components/findThingsMapComponent");
 var AboutUs = require('./components/aboutUsComponent');
 var NavBar = require('./components/navComponent');
 var HomePage = require("./components/homepagecomponent");
-var MapComponent = require("./components/map.js");
+
 
 var ListingCollection = require('./collections/listingCollection');
 

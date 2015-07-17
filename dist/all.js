@@ -33511,7 +33511,7 @@ module.exports = Backbone.Collection.extend({
     parseClassName: "listing"
 });
 
-},{"../models/listingModel":175,"backbone":1,"jquery":5}],164:[function(require,module,exports){
+},{"../models/listingModel":174,"backbone":1,"jquery":5}],164:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -33702,40 +33702,8 @@ module.exports = React.createClass({
 });
 
 },{"react":160}],166:[function(require,module,exports){
-'use strict';
 
-var React = require('react');
-var listingCollection = require('../collections/listingCollection');
-
-module.exports = React.createClass({
-	displayName: 'exports',
-
-	componentWillMount: function componentWillMount() {
-		var listings = new listingCollection();
-		listings.fetch;
-	},
-
-	render: function render() {
-		var listingEls = this.props.listing.map(function (ListingModel) {
-			return React.createElement(
-				'div',
-				{ key: ListingModel.cid },
-				React.createElement(
-					'h3',
-					null,
-					ListingModel.get('title')
-				),
-				React.createElement(
-					'p',
-					null,
-					ListingModel.get('description')
-				)
-			);
-		});
-	}
-});
-
-},{"../collections/listingCollection":163,"react":160}],167:[function(require,module,exports){
+},{}],167:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -34196,7 +34164,7 @@ module.exports = React.createClass({
 });
 /* this.state.imageUrl */ /* if this is truthy, image uploaded */
 
-},{"../../node_modules/underscore/underscore-min.js":161,"../models/listingModel":175,"react":160,"validator":162}],171:[function(require,module,exports){
+},{"../../node_modules/underscore/underscore-min.js":161,"../models/listingModel":174,"react":160,"validator":162}],171:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -34227,99 +34195,6 @@ module.exports = React.createClass({
 });
 
 },{"react":160}],172:[function(require,module,exports){
-"use strict";
-
-// var React = require('react');
-
-// module.exports = React.createClass({
-// 	getInitialState: function() {
-// 		return {
-// 			map: null
-// 		}
-// 	},
-// 	componentWillMount: function() {
-// 		google.maps.event.addDomListener(window, 'load', this.createMap);
-// 	},
-// 	render: function() {
-// 		var style = {
-// 			width: '100%',
-// 			height: '15em'
-// 		};
-// 		return (
-// 			<div>
-// 				<div ref="map" style={style}>hello</div>
-// 				<div ref="street" style={style}>hello</div>
-// 				<button type="button" onClick={this.recenterMap}>
-// 					Re-center map
-// 				</button>
-// 				<button type="button" onClick={this.addMarker}>
-// 					Add marker
-// 				</button>
-// 				<button type="button" onClick={this.streetView}>
-// 					Street view
-// 				</button>
-// 			</div>
-// 		);
-// 	},
-// 	createMap: function() {
-// 		var mapOptions = {
-// 			center: { lat: -34.397, lng: 150.644},
-// 			zoom: 8
-// 		};
-// 		var map = new google.maps.Map(
-// 			this.refs.map.getDOMNode(),
-// 			mapOptions
-// 		);
-
-// 		this.setState({map: map});
-
-// 	},
-
-// 	recenterMap: function() {
-// 		console.log('recenterMap');
-
-// 		var latLng = new google.maps.LatLng(
-// 			-33.7969235,
-// 			150.9224326
-// 		);
-
-// 		this.state.map.panTo(latLng);
-// 		// this.state.map.setZoom(17);
-// 	},
-
-// 	addMarker: function() {
-// 		var myLatlng = new google.maps.LatLng(-34.397, 150.644);
-// 		var marker = new google.maps.Marker({
-// 			position: myLatlng,
-// 			map: this.state.map,
-// 			title: 'Hello World!'
-// 		});
-// 		var contentString = '<h3>hello world!</h3>';
-// 		var infowindow = new google.maps.InfoWindow({
-// 			content: contentString
-// 		});
-// 		var self = this;
-// 		google.maps.event.addListener(marker, 'click', function() {
-// 			infowindow.open(self.state.map, marker);
-// 		});
-// 	},
-// 	streetView: function() {
-// 		var panoramaOptions = {
-// 			position: new google.maps.LatLng(42.345573, -71.098326),
-// 			pov: {
-// 				heading: 34,
-// 				pitch: 10
-// 			}
-// 		};
-// 		var panorama = new google.maps.StreetViewPanorama(
-// 			this.refs.street.getDOMNode(),
-// 			panoramaOptions
-// 		);
-//   		this.state.map.setStreetView(panorama);
-// 	}
-// });
-
-},{}],173:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -34378,7 +34253,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"react":160}],174:[function(require,module,exports){
+},{"react":160}],173:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -34396,7 +34271,6 @@ var FindThingsMap = require("./components/findThingsMapComponent");
 var AboutUs = require("./components/aboutUsComponent");
 var NavBar = require("./components/navComponent");
 var HomePage = require("./components/homepagecomponent");
-var MapComponent = require("./components/map.js");
 
 var ListingCollection = require("./collections/listingCollection");
 
@@ -34460,7 +34334,7 @@ var myApp = new App();
 
 Backbone.history.start();
 
-},{"./collections/listingCollection":163,"./components/aboutUsComponent":164,"./components/findThingsMapComponent":165,"./components/findthingslistcomponent":166,"./components/giverdetailcomponent":167,"./components/homepagecomponent":168,"./components/itemdetailcomponent":169,"./components/listThingsComponent":170,"./components/listsuccesscomponent":171,"./components/map.js":172,"./components/navComponent":173,"./models/listingModel":175,"backbone":1,"jquery":5,"react":160}],175:[function(require,module,exports){
+},{"./collections/listingCollection":163,"./components/aboutUsComponent":164,"./components/findThingsMapComponent":165,"./components/findthingslistcomponent":166,"./components/giverdetailcomponent":167,"./components/homepagecomponent":168,"./components/itemdetailcomponent":169,"./components/listThingsComponent":170,"./components/listsuccesscomponent":171,"./components/navComponent":172,"./models/listingModel":174,"backbone":1,"jquery":5,"react":160}],174:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backparse')({
@@ -34496,7 +34370,7 @@ module.exports = Backbone.Model.extend({
 				idAttribute: 'objectId'
 });
 
-},{"backparse":3,"jquery":5}]},{},[174])
+},{"backparse":3,"jquery":5}]},{},[173])
 
 
 //# sourceMappingURL=all.js.map
