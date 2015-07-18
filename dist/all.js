@@ -33702,8 +33702,88 @@ module.exports = React.createClass({
 });
 
 },{"react":160}],166:[function(require,module,exports){
+"use strict";
 
-},{}],167:[function(require,module,exports){
+var React = require("react");
+var listingCollection = require("../collections/listingCollection");
+
+var ListingModel = require("../models/listingModel");
+
+module.exports = React.createClass({
+	displayName: "exports",
+
+	componentWillMount: function componentWillMount() {
+		var listings = new listingCollection();
+		listings.fetch({
+
+			success: function success(listings) {
+				console.log(listings);
+			},
+
+			error: function error(listings, _error) {
+				console.log(_error);
+			}
+		});
+	},
+
+	render: function render() {
+		return React.createElement("div", null);
+	}
+});
+
+/*var Listings = Parse.Object.extend("Listings");
+var FTL = Parse.Collection.extend({
+    model: listing
+});
+
+var ftl = new FTL();
+
+ftl.fetch({
+    success: function(ftl) {
+        console.log(ftl);
+    },
+    error: function(ftl, error) {
+        console.log(error);
+    }
+});*/
+
+/*module.exports = React.createClass({
+	
+
+	getInitialState: function () {
+		var that = this;
+		var listlistings = new listingCollection();
+
+		listlistings.fetch({
+			query: {username: this.props.listing.title},
+
+			success: function(listing) {
+				that.setState({listing: listing.model});
+			}
+		});
+
+	componentWillMount: function() {
+		this.state.listing.on("change", function() {
+			this.forceUpdate();
+		}, this);
+		this.state.listings.on("add", function() {
+			this.forceUpdate();
+		}, this);
+		
+	},
+
+		listlistings.on("change", function() {
+			that.forceUpdate();
+		})
+
+			return {
+				
+		};
+	},
+
+*/
+
+},{"../collections/listingCollection":163,"../models/listingModel":174,"react":160}],167:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
