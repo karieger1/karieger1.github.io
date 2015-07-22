@@ -1,6 +1,7 @@
 var React = require('react');
-var Backbone = require("backbone");
-Backbone.$ = require("jquery");
+var Backbone = require('backparse')(require('./config/parse'));
+var ListingModel = require("./models/ListingModel");
+var ListingCollection = require('./collections/listingCollection');
 
 var containerEl = document.getElementById("container");
 
@@ -16,11 +17,9 @@ var NavBar = require('./components/navComponent');
 var HomePage = require("./components/homepagecomponent");
 
 
-var ListingCollection = require('./collections/listingCollection');
-
-var ListingModel = require("./models/listingModel");
-
 var listing = new ListingModel();
+
+var listingList = (<FindThingsList listing={listing} />);
 
 filepicker.setKey("ANzsBUFgaT0q8UhqRkYmyz");
 
@@ -62,8 +61,8 @@ var App = Backbone.Router.extend({
 	},
 	findThingsList: function() {
 		React.render(
-			<FindThingsList listing ={listing}
-			myApp={myApp} />,
+			<FindThingsList /*listing ={listing}
+			myApp={myApp} *//>,
 			containerEl
 		);
 	},

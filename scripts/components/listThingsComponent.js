@@ -1,6 +1,6 @@
 var React = require('react'); 
 var validator = require('validator'); 
-var ListingModel = require("../models/listingModel");
+var ListingModel = require("../models/ListingModel");
 var _ = require('../../node_modules/underscore/underscore-min.js');
 
 

@@ -33500,18 +33500,17 @@ module.exports = require('./lib/React');
 });
 
 },{}],163:[function(require,module,exports){
-"use strict";
+'use strict';
 
-var Backbone = require("backbone");
-Backbone.$ = require("jquery");
-var ListingModel = require("../models/listingModel");
+var Backbone = require('backparse')(require('../config/parse'));
+var ListingModel = require('../models/ListingModel');
 
 module.exports = Backbone.Collection.extend({
     model: ListingModel,
-    parseClassName: "listing"
+    parseClassName: 'listing'
 });
 
-},{"../models/listingModel":174,"backbone":1,"jquery":5}],164:[function(require,module,exports){
+},{"../config/parse":173,"../models/ListingModel":175,"backparse":3}],164:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -33705,9 +33704,8 @@ module.exports = React.createClass({
 "use strict";
 
 var React = require("react");
+var ListingModel = require("../models/ListingModel");
 var listingCollection = require("../collections/listingCollection");
-
-var ListingModel = require("../models/listingModel");
 
 module.exports = React.createClass({
 	displayName: "exports",
@@ -33726,64 +33724,32 @@ module.exports = React.createClass({
 		});
 	},
 
+	/*	getInitialState: function() {
+ 		return {listing: this.props.listing}
+ 	},
+ 
+ 	render: function () {
+ 		this.state.listings.model();
+ 
+ 		var listlistings = this.props.listings.map(function(ListingModel) {
+ */
 	render: function render() {
-		return React.createElement("div", null);
-	}
-});
-
-/*var Listings = Parse.Object.extend("Listings");
-var FTL = Parse.Collection.extend({
-    model: listing
-});
-
-var ftl = new FTL();
-
-ftl.fetch({
-    success: function(ftl) {
-        console.log(ftl);
-    },
-    error: function(ftl, error) {
-        console.log(error);
-    }
-});*/
-
-/*module.exports = React.createClass({
-	
-
-	getInitialState: function () {
-		var that = this;
-		var listlistings = new listingCollection();
-
-		listlistings.fetch({
-			query: {username: this.props.listing.title},
-
-			success: function(listing) {
-				that.setState({listing: listing.model});
-			}
+		var listEls = this.props.listings.map(function (listingModel) {
+			return React.createElement(
+				"div",
+				{ key: listingModel.cid },
+				React.createElement(
+					"h3",
+					null,
+					listingModel.get("title")
+				)
+			);
 		});
+	}
 
-	componentWillMount: function() {
-		this.state.listing.on("change", function() {
-			this.forceUpdate();
-		}, this);
-		this.state.listings.on("add", function() {
-			this.forceUpdate();
-		}, this);
-		
-	},
+});
 
-		listlistings.on("change", function() {
-			that.forceUpdate();
-		})
-
-			return {
-				
-		};
-	},
-
-*/
-
-},{"../collections/listingCollection":163,"../models/listingModel":174,"react":160}],167:[function(require,module,exports){
+},{"../collections/listingCollection":163,"../models/ListingModel":175,"react":160}],167:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -33949,7 +33915,7 @@ module.exports = React.createClass({
 
 var React = require('react');
 var validator = require('validator');
-var ListingModel = require('../models/listingModel');
+var ListingModel = require('../models/ListingModel');
 var _ = require('../../node_modules/underscore/underscore-min.js');
 
 module.exports = React.createClass({
@@ -34244,7 +34210,7 @@ module.exports = React.createClass({
 });
 /* this.state.imageUrl */ /* if this is truthy, image uploaded */
 
-},{"../../node_modules/underscore/underscore-min.js":161,"../models/listingModel":174,"react":160,"validator":162}],171:[function(require,module,exports){
+},{"../../node_modules/underscore/underscore-min.js":161,"../models/ListingModel":175,"react":160,"validator":162}],171:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -34334,62 +34300,70 @@ module.exports = React.createClass({
 });
 
 },{"react":160}],173:[function(require,module,exports){
-"use strict";
+'use strict';
 
-var React = require("react");
-var Backbone = require("backbone");
-Backbone.$ = require("jquery");
+module.exports = {
+    appId: 'mymJM88ioRzDIumuLBWpUsXokyFpuAtVJCYATCJH',
+    apiKey: 'MFzztwSFpRYXJMyvfPfnJ7N9cOFozKK2opJNGlOA',
+    apiVersion: 1
+};
 
-var containerEl = document.getElementById("container");
+},{}],174:[function(require,module,exports){
+'use strict';
 
-var GiverDetail = require("./components/giverdetailcomponent");
-var ItemDetail = require("./components/itemdetailcomponent");
-var ListSuccess = require("./components/listsuccesscomponent");
-var ListThings = require("./components/listThingsComponent");
-var FindThingsList = require("./components/findthingslistcomponent");
-var FindThingsMap = require("./components/findThingsMapComponent");
-var AboutUs = require("./components/aboutUsComponent");
-var NavBar = require("./components/navComponent");
-var HomePage = require("./components/homepagecomponent");
+var React = require('react');
+var Backbone = require('backparse')(require('./config/parse'));
+var ListingModel = require('./models/ListingModel');
+var ListingCollection = require('./collections/listingCollection');
 
-var ListingCollection = require("./collections/listingCollection");
+var containerEl = document.getElementById('container');
 
-var ListingModel = require("./models/listingModel");
+var GiverDetail = require('./components/giverdetailcomponent');
+var ItemDetail = require('./components/itemdetailcomponent');
+var ListSuccess = require('./components/listsuccesscomponent');
+var ListThings = require('./components/listThingsComponent');
+var FindThingsList = require('./components/findthingslistcomponent');
+var FindThingsMap = require('./components/findThingsMapComponent');
+var AboutUs = require('./components/aboutUsComponent');
+var NavBar = require('./components/navComponent');
+var HomePage = require('./components/homepagecomponent');
 
 var listing = new ListingModel();
 
-filepicker.setKey("ANzsBUFgaT0q8UhqRkYmyz");
+var listingList = React.createElement(FindThingsList, { listing: listing });
 
-React.render(React.createElement(NavBar, { myApp: myApp }), document.getElementById("navbar"));
+filepicker.setKey('ANzsBUFgaT0q8UhqRkYmyz');
+
+React.render(React.createElement(NavBar, { myApp: myApp }), document.getElementById('navbar'));
 
 //set up router:
 
 var App = Backbone.Router.extend({
 
 	routes: {
-		"": "home",
-		"home": "home",
-		"findThingsMap": "findThingsMap",
-		"itemDetail": "itemDetail",
-		"findThingsList": "findThingsList",
-		"giverDetail": "giverDetail",
-		"listThings": "listThings",
-		"listSuccess": "listSuccess",
-		"aboutUs": "aboutUs"
+		'': 'home',
+		'home': 'home',
+		'findThingsMap': 'findThingsMap',
+		'itemDetail': 'itemDetail',
+		'findThingsList': 'findThingsList',
+		'giverDetail': 'giverDetail',
+		'listThings': 'listThings',
+		'listSuccess': 'listSuccess',
+		'aboutUs': 'aboutUs'
 	},
 
 	home: function home() {
 		React.render(React.createElement(HomePage, null), containerEl);
 	},
 	findThingsMap: function findThingsMap() {
-		console.log("map of things?");
+		console.log('map of things?');
 		React.render(React.createElement(FindThingsMap, null),
 		//document.getElementById("map-canvas")
 		containerEl);
 	},
 	findThingsList: function findThingsList() {
-		React.render(React.createElement(FindThingsList, { listing: listing,
-			myApp: myApp }), containerEl);
+		React.render(React.createElement(FindThingsList, /*listing ={listing}
+                                                   myApp={myApp} */null), containerEl);
 	},
 	itemDetail: function itemDetail() {
 		React.render(React.createElement(ItemDetail, null), containerEl);
@@ -34398,7 +34372,7 @@ var App = Backbone.Router.extend({
 		React.render(React.createElement(GiverDetail, null), containerEl);
 	},
 	listThings: function listThings() {
-		console.log("list things");
+		console.log('list things');
 		React.render(React.createElement(ListThings, { listing: listing,
 			myApp: myApp }), containerEl);
 	},
@@ -34406,7 +34380,7 @@ var App = Backbone.Router.extend({
 		React.render(React.createElement(ListSuccess, null), containerEl);
 	},
 	aboutUs: function aboutUs() {
-		console.log("about us");
+		console.log('about us');
 		React.render(React.createElement(AboutUs, null), containerEl);
 	}
 });
@@ -34415,43 +34389,37 @@ var myApp = new App();
 
 Backbone.history.start();
 
-},{"./collections/listingCollection":163,"./components/aboutUsComponent":164,"./components/findThingsMapComponent":165,"./components/findthingslistcomponent":166,"./components/giverdetailcomponent":167,"./components/homepagecomponent":168,"./components/itemdetailcomponent":169,"./components/listThingsComponent":170,"./components/listsuccesscomponent":171,"./components/navComponent":172,"./models/listingModel":174,"backbone":1,"jquery":5,"react":160}],174:[function(require,module,exports){
+},{"./collections/listingCollection":163,"./components/aboutUsComponent":164,"./components/findThingsMapComponent":165,"./components/findthingslistcomponent":166,"./components/giverdetailcomponent":167,"./components/homepagecomponent":168,"./components/itemdetailcomponent":169,"./components/listThingsComponent":170,"./components/listsuccesscomponent":171,"./components/navComponent":172,"./config/parse":173,"./models/ListingModel":175,"backparse":3,"react":160}],175:[function(require,module,exports){
 'use strict';
 
-var Backbone = require('backparse')({
-				appId: 'mymJM88ioRzDIumuLBWpUsXokyFpuAtVJCYATCJH',
-				apiKey: 'MFzztwSFpRYXJMyvfPfnJ7N9cOFozKK2opJNGlOA',
-				apiVersion: 1
-});
-
-Backbone.$ = require('jquery');
+var Backbone = require('backparse')(require('../config/parse'));
 
 module.exports = Backbone.Model.extend({
-				defaults: {
-								objectId: null,
-								title: '',
-								description: '',
-								itemCondition: '',
-								category: '',
-								location: {
-												'lat': null,
-												'long': null
-								}, //make this an object
-								userID: '',
-								userName: '',
-								userEmail: '',
-								userPhone: '',
-								userAddress: '',
-								userZip: null,
-								itemImage: '',
-								createdAt: null
-				},
+	defaults: {
+		objectId: null,
+		title: '',
+		description: '',
+		itemCondition: '',
+		category: '',
+		location: {
+			'lat': null,
+			'long': null
+		}, //make this an object
+		userID: '',
+		userName: '',
+		userEmail: '',
+		userPhone: '',
+		userAddress: '',
+		userZip: null,
+		itemImage: '',
+		createdAt: null
+	},
 
-				parseClassName: 'listing',
-				idAttribute: 'objectId'
+	parseClassName: 'listing',
+	idAttribute: 'objectId'
 });
 
-},{"backparse":3,"jquery":5}]},{},[173])
+},{"../config/parse":173,"backparse":3}]},{},[174])
 
 
 //# sourceMappingURL=all.js.map

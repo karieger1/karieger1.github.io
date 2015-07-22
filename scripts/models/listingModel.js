@@ -1,10 +1,4 @@
-var Backbone = require('backparse')({
-    appId: 'mymJM88ioRzDIumuLBWpUsXokyFpuAtVJCYATCJH',
-    apiKey: 'MFzztwSFpRYXJMyvfPfnJ7N9cOFozKK2opJNGlOA',
-    apiVersion: 1
-});
-
-Backbone.$ = require("jquery");
+var Backbone = require('backparse')(require('../config/parse'));
 
 module.exports = Backbone.Model.extend({
 	defaults: {
