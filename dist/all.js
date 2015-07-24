@@ -33701,17 +33701,20 @@ module.exports = React.createClass({
 });
 
 },{"react":160}],166:[function(require,module,exports){
-"use strict";
+'use strict';
 
-var React = require("react");
-var ListingModel = require("../models/ListingModel");
-var listingCollection = require("../collections/listingCollection");
+var React = require('react');
+var $ = require('jquery');
+var ListingModel = require('../models/ListingModel');
+var ListingCollection = require('../collections/listingCollection');
+var _ = require('../../node_modules/underscore/underscore-min.js');
+var listings = new ListingCollection();
 
 module.exports = React.createClass({
-	displayName: "exports",
+	displayName: 'exports',
 
 	componentWillMount: function componentWillMount() {
-		var listings = new listingCollection();
+
 		listings.fetch({
 
 			success: function success(listings) {
@@ -33724,24 +33727,24 @@ module.exports = React.createClass({
 		});
 	},
 
-	/*	getInitialState: function() {
- 		return {listing: this.props.listing}
- 	},
- 
+	getInitialState: function getInitialState() {
+		return { listings: this.props.listing };
+	},
+	/*
  	render: function () {
  		this.state.listings.model();
  
  		var listlistings = this.props.listings.map(function(ListingModel) {
  */
 	render: function render() {
-		var listEls = this.props.listings.map(function (listingModel) {
+		var listEls = this.props.listings.map(function (ListingModel) {
 			return React.createElement(
-				"div",
-				{ key: listingModel.cid },
+				'div',
+				{ key: ListingModel.cid },
 				React.createElement(
-					"h3",
+					'h3',
 					null,
-					listingModel.get("title")
+					ListingModel.get('title')
 				)
 			);
 		});
@@ -33749,7 +33752,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../collections/listingCollection":163,"../models/ListingModel":175,"react":160}],167:[function(require,module,exports){
+},{"../../node_modules/underscore/underscore-min.js":161,"../collections/listingCollection":163,"../models/ListingModel":175,"jquery":5,"react":160}],167:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -34328,6 +34331,7 @@ var AboutUs = require('./components/aboutUsComponent');
 var NavBar = require('./components/navComponent');
 var HomePage = require('./components/homepagecomponent');
 
+var listings = new ListingCollection();
 var listing = new ListingModel();
 
 var listingList = React.createElement(FindThingsList, { listing: listing });

@@ -16,7 +16,7 @@ var AboutUs = require('./components/aboutUsComponent');
 var NavBar = require('./components/navComponent');
 var HomePage = require("./components/homepagecomponent");
 
-
+var listings = new ListingCollection();
 var listing = new ListingModel();
 
 var listingList = (<FindThingsList listing={listing} />);
