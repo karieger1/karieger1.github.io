@@ -12,6 +12,7 @@
 	 top: 0;
   	left: 0;
   	z-index: 999;
+  	margin-bottom: 50px;
 }
 
 #navpills {
@@ -108,7 +109,7 @@
 	background-color: black;
 	opacity: 0.9;
 	width:100%;
-	  margin:0;
+	/*margin:0;*/
    padding:0;
    position:fixed;
    top:0;
@@ -117,12 +118,14 @@
 	padding-bottom: 1em;
 	border:solid white 1px;
 	border-radius: 10px;
+	/*margin-bottom: 50px;*/
 }
 
 #navpills {
 	font-family: Courier New;
 	font-weight: bold;
 	font-color: white;
+	
 	
 
 }
@@ -241,7 +244,7 @@
 	    1px  1px 0 #000;
 }
 
-h3 {
+.aboutUsheadings {
 	text-shadow:
 	    3px 3px 0 #000,
 	   -1px -1px 0 #000,  
@@ -345,6 +348,32 @@ h3 {
 	margin: 0 auto;
 }
 
+/*FINDTHINGSLISTCOMP*/
+
 #listbutton {
 	margin-top: 20px;
 }
+
+#renderlistings {
+	color: white;
+}
+
+#listingbox {
+	border: 1px solid grey;
+}
+
+#listingzip {
+	clear:both;
+	padding-left: 30px;
+}
+
+#detailsbutton {
+	float: right;
+	margin-bottom: 10px;
+	background-color: black;
+	border:1px solid white;
+	border-radius: 50px;
+	padding:5px;
+	margin-right:40px;
+}
+

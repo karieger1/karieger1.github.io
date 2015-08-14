@@ -17,6 +17,9 @@ var NavBar = require('./components/navComponent');
 var HomePage = require("./components/homepagecomponent");
 
 var listings = new ListingCollection();
+
+listings.fetch();
+
 var listing = new ListingModel();
 
 var listingList = (<FindThingsList listing={listing} />);
@@ -61,8 +64,8 @@ var App = Backbone.Router.extend({
 	},
 	findThingsList: function() {
 		React.render(
-			<FindThingsList /*listing ={listing}
-			myApp={myApp} *//>,
+			<FindThingsList listings ={listings}
+			myApp={myApp} />,
 			containerEl
 		);
 	},

@@ -3,6 +3,7 @@ var Backbone = require('backparse')(require('../config/parse'));
 module.exports = Backbone.Model.extend({
 	defaults: {
 		objectId: null,
+		icon:"",
 		title: "",
 		description: "",
 		itemCondition: "",

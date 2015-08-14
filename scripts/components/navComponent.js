@@ -4,7 +4,7 @@ module.exports = React.createClass({
     render: function () {
         return (
        	// <!-- Navigation -->
-        <div className="navcontainer">
+        <div id="navnav" className="navcontainer">
 		      <ul className="nav nav-pills" id="navpills">
   				
     				<li role="presentation" id="homenav"><a href="#home">Home</a></li>

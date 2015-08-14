@@ -23,7 +23,7 @@ module.exports = React.createClass ({
 					</div>
 				</div>
 				<div className="container">
-					<div className="row"><center><h3>Who created this amazing piece of technology?!</h3></center>
+					<div className="row"><center><h3 className="aboutUsheadings">Who created this amazing piece of technology?!</h3></center>
 						<div className="col-md-4 col-lg-4">
 							<img id="mePic" src="./images/kristentaco1.gif" />
 						</div>

@@ -33564,7 +33564,7 @@ module.exports = React.createClass({
 						null,
 						React.createElement(
 							"h3",
-							null,
+							{ className: "aboutUsheadings" },
 							"Who created this amazing piece of technology?!"
 						)
 					),
@@ -33708,22 +33708,14 @@ var $ = require('jquery');
 var ListingModel = require('../models/ListingModel');
 var ListingCollection = require('../collections/listingCollection');
 var _ = require('../../node_modules/underscore/underscore-min.js');
-var listings = new ListingCollection();
 
 module.exports = React.createClass({
 	displayName: 'exports',
 
 	componentWillMount: function componentWillMount() {
-
-		listings.fetch({
-
-			success: function success(listings) {
-				console.log(listings);
-			},
-
-			error: function error(listings, _error) {
-				console.log(_error);
-			}
+		var self = this;
+		this.props.listings.on('sync', function () {
+			self.forceUpdate();
 		});
 	},
 
@@ -33738,16 +33730,64 @@ module.exports = React.createClass({
  */
 	render: function render() {
 		var listEls = this.props.listings.map(function (ListingModel) {
+
 			return React.createElement(
 				'div',
-				{ key: ListingModel.cid },
+				{ id: 'renderlistings' },
 				React.createElement(
-					'h3',
-					null,
-					ListingModel.get('title')
+					'div',
+					{ key: ListingModel.cid },
+					React.createElement(
+						'div',
+						{ className: 'container', id: 'listingbox' },
+						React.createElement(
+							'div',
+							{ className: 'row' },
+							React.createElement(
+								'div',
+								{ id: 'listingtitle', className: 'col-xs-12 col-sm-12 col-md-12 col-lg-12' },
+								React.createElement(
+									'div',
+									{ className: 'col-xs-6 col-sm-6 col-md-4 col-lg-3' },
+									React.createElement(
+										'h4',
+										null,
+										ListingModel.get('title')
+									)
+								)
+							),
+							React.createElement(
+								'div',
+								{ id: 'listingzip', className: 'col-xs-6 col-sm-6 col-md-4 col-lg-3' },
+								React.createElement(
+									'p',
+									null,
+									ListingModel.get('userZip')
+								)
+							),
+							React.createElement(
+								'div',
+								{ className: 'row' },
+								React.createElement(
+									'div',
+									null,
+									React.createElement(
+										'button',
+										{ id: 'detailsbutton' },
+										'Details'
+									)
+								)
+							)
+						)
+					)
 				)
 			);
 		});
+		return React.createElement(
+			'div',
+			{ className: 'listingElements' },
+			listEls
+		);
 	}
 
 });
@@ -34256,7 +34296,7 @@ module.exports = React.createClass({
             // <!-- Navigation -->
             React.createElement(
                 "div",
-                { className: "navcontainer" },
+                { id: "navnav", className: "navcontainer" },
                 React.createElement(
                     "ul",
                     { className: "nav nav-pills", id: "navpills" },
@@ -34332,6 +34372,9 @@ var NavBar = require('./components/navComponent');
 var HomePage = require('./components/homepagecomponent');
 
 var listings = new ListingCollection();
+
+listings.fetch();
+
 var listing = new ListingModel();
 
 var listingList = React.createElement(FindThingsList, { listing: listing });
@@ -34366,8 +34409,8 @@ var App = Backbone.Router.extend({
 		containerEl);
 	},
 	findThingsList: function findThingsList() {
-		React.render(React.createElement(FindThingsList, /*listing ={listing}
-                                                   myApp={myApp} */null), containerEl);
+		React.render(React.createElement(FindThingsList, { listings: listings,
+			myApp: myApp }), containerEl);
 	},
 	itemDetail: function itemDetail() {
 		React.render(React.createElement(ItemDetail, null), containerEl);
@@ -34401,6 +34444,7 @@ var Backbone = require('backparse')(require('../config/parse'));
 module.exports = Backbone.Model.extend({
 	defaults: {
 		objectId: null,
+		icon: '',
 		title: '',
 		description: '',
 		itemCondition: '',
