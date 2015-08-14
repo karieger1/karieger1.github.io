@@ -33742,13 +33742,13 @@ module.exports = React.createClass({
 						{ className: 'container', id: 'listingbox' },
 						React.createElement(
 							'div',
-							{ className: 'row' },
+							{ className: 'col-xs-12 col-sm-12 col-md-12 col-lg-12' },
 							React.createElement(
 								'div',
-								{ id: 'listingtitle', className: 'col-xs-12 col-sm-12 col-md-12 col-lg-12' },
+								{ className: 'row' },
 								React.createElement(
 									'div',
-									{ className: 'col-xs-6 col-sm-6 col-md-4 col-lg-3' },
+									{ className: 'col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-6 col-lg-3 col-md-offset-6' },
 									React.createElement(
 										'h4',
 										null,
@@ -33758,12 +33758,18 @@ module.exports = React.createClass({
 							),
 							React.createElement(
 								'div',
-								{ id: 'listingzip', className: 'col-xs-6 col-sm-6 col-md-4 col-lg-3' },
+								{ id: 'listingzip', className: 'col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-6 col-lg-3 col-md-offset-6' },
 								React.createElement(
 									'p',
 									null,
-									ListingModel.get('userZip')
+									ListingModel.get('userZip'),
+									' '
 								)
+							),
+							React.createElement(
+								'div',
+								{ className: 'row' },
+								React.createElement('img', { id: 'listingimage', src: ListingModel.get('itemImage') })
 							),
 							React.createElement(
 								'div',

@@ -32,24 +32,35 @@ module.exports = React.createClass({
 
 					<div key={ListingModel.cid}>
 						<div className="container" id="listingbox">
-							<div className="row">
-								<div id="listingtitle" className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-									<div className="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+							<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div className="row">
+								
+									<div className="col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-6 col-lg-3 col-md-offset-6">
 										<h4>{ListingModel.get("title")}</h4>
 									</div>
 								</div>
-								<div id="listingzip" className="col-xs-6 col-sm-6 col-md-4 col-lg-3">
-									<p>{ListingModel.get("userZip")}</p>
+								
+								<div id="listingzip" className="col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-6 col-lg-3 col-md-offset-6">
+									<p>{ListingModel.get("userZip")} </p>
 								</div>
-							<div className="row">
-								<div>
-									<button id="detailsbutton">Details</button>
+								
+								
+								<div className="row">
+									
+										<img id="listingimage" src={ListingModel.get("itemImage")} />
+									
 								</div>
-							</div>	
+
+								<div className="row">
+									<div>
+										<button id="detailsbutton">Details</button>
+									</div>
+								</div>	
+							</div>
 						</div>
 					</div>
 				</div>
-				</div>
+				
 				);
 			});
 			return (
