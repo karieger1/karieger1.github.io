@@ -377,6 +377,13 @@
 	margin-right:40px;
 }
 
-#listingimage {
+#listingimagebox {
 	float: left;
+
+}
+
+/*ITEM DETAIL*/
+
+#renderlistingdetail {
+	color: white;
 }

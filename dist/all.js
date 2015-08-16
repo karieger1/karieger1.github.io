@@ -33722,12 +33722,7 @@ module.exports = React.createClass({
 	getInitialState: function getInitialState() {
 		return { listings: this.props.listing };
 	},
-	/*
- 	render: function () {
- 		this.state.listings.model();
- 
- 		var listlistings = this.props.listings.map(function(ListingModel) {
- */
+
 	render: function render() {
 		var listEls = this.props.listings.map(function (ListingModel) {
 
@@ -33769,7 +33764,15 @@ module.exports = React.createClass({
 							React.createElement(
 								'div',
 								{ className: 'row' },
-								React.createElement('img', { id: 'listingimage', src: ListingModel.get('itemImage') })
+								React.createElement(
+									'div',
+									{ className: 'col-xs-4 col-s-4 col-md-3 col-lg-3' },
+									React.createElement(
+										'div',
+										{ id: 'listingimagebox' },
+										React.createElement('img', { id: 'listingimage', src: ListingModel.get('itemImage') })
+									)
+								)
 							),
 							React.createElement(
 								'div',
@@ -33778,8 +33781,8 @@ module.exports = React.createClass({
 									'div',
 									null,
 									React.createElement(
-										'button',
-										{ id: 'detailsbutton' },
+										'a',
+										{ className: 'btn btn-default', id: 'itemdetailbutton', href: '#itemDetail', role: 'button' },
 										'Details'
 									)
 								)
@@ -33797,6 +33800,10 @@ module.exports = React.createClass({
 	}
 
 });
+/*viewDetails: function(e) {
+		e.preventDefault();
+		this.props.myApps.navigate("itemDetails", {trigger:true});
+			}*/
 
 },{"../../node_modules/underscore/underscore-min.js":161,"../collections/listingCollection":163,"../models/ListingModel":175,"jquery":5,"react":160}],167:[function(require,module,exports){
 "use strict";
@@ -33926,40 +33933,70 @@ module.exports = React.createClass({
 });
 
 },{"react":160}],169:[function(require,module,exports){
-"use strict";
+'use strict';
 
-var React = require("react");
+var React = require('react');
+var $ = require('jquery');
+var ListingModel = require('../models/ListingModel');
+var ListingCollection = require('../collections/listingCollection');
+var _ = require('../../node_modules/underscore/underscore-min.js');
 
 module.exports = React.createClass({
-  displayName: "exports",
+    displayName: 'exports',
 
-  render: function render() {
-    return React.createElement(
-      "div",
-      { className: "container" },
-      React.createElement(
-        "div",
-        { className: "row" },
-        React.createElement(
-          "div",
-          { id: "itemdetail", className: "col-xs-12 col-s-12 col-md-8 col-md-offset-4 col-lg-8 col-lg-offset-4" },
-          React.createElement(
-            "p",
-            null,
-            "Item description Pic Distance from user Condition listedAt"
-          ),
-          React.createElement(
-            "button",
-            { id: "giverinfo" },
-            "Get giver info"
-          )
-        )
-      )
-    );
-  }
+    componentWillMount: function componentWillMount() {
+        var self = this;
+        this.props.listings.on('sync', function () {
+            self.forceUpdate();
+        });
+    },
+
+    getInitialState: function getInitialState() {
+        return { listings: this.props.listing };
+    },
+
+    render: function render() {
+        var listEls = this.props.listings.map(function (ListingModel) {
+            return React.createElement(
+                'div',
+                { id: 'renderlistingdetail' },
+                React.createElement(
+                    'div',
+                    { key: ListingModel.cid },
+                    React.createElement(
+                        'div',
+                        { className: 'container' },
+                        React.createElement(
+                            'h2',
+                            null,
+                            'Listing details:'
+                        ),
+                        React.createElement(
+                            'div',
+                            { className: 'row' },
+                            React.createElement(
+                                'div',
+                                { id: 'itemdetail', className: 'col-xs-12 col-s-8 col-s-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3' },
+                                React.createElement(
+                                    'h4',
+                                    null,
+                                    ListingModel.get('title')
+                                ),
+                                React.createElement(
+                                    'button',
+                                    { id: 'giverinfo' },
+                                    'Get giver info'
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        });
+    }
 });
 
-},{"react":160}],170:[function(require,module,exports){
+},{"../../node_modules/underscore/underscore-min.js":161,"../collections/listingCollection":163,"../models/ListingModel":175,"jquery":5,"react":160}],170:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -34419,7 +34456,8 @@ var App = Backbone.Router.extend({
 			myApp: myApp }), containerEl);
 	},
 	itemDetail: function itemDetail() {
-		React.render(React.createElement(ItemDetail, null), containerEl);
+		React.render(React.createElement(ItemDetail, { listings: listings,
+			myApp: myApp }), containerEl);
 	},
 	giverDetail: function giverDetail() {
 		React.render(React.createElement(GiverDetail, null), containerEl);

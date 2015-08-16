@@ -6,24 +6,18 @@ var _ = require('../../node_modules/underscore/underscore-min.js');
 
 
 module.exports = React.createClass({
-	componentWillMount: function() {
-			var self = this;
-			this.props.listings.on("sync", function(){
-				self.forceUpdate();
-			})
-			
+		componentWillMount: function() {
+				var self = this;
+				this.props.listings.on("sync", function(){
+					self.forceUpdate();
+				})
+			},
+
+		getInitialState: function() {
+			return {listings: this.props.listing}
 		},
 
-	getInitialState: function() {
-		return {listings: this.props.listing}
-	},
-/*
-	render: function () {
-		this.state.listings.model();
-
-		var listlistings = this.props.listings.map(function(ListingModel) {
-*/
-		render: function() {
+	render: function() {
 			var listEls = this.props.listings.map(function(ListingModel) {
 				
 				return (
@@ -46,14 +40,16 @@ module.exports = React.createClass({
 								
 								
 								<div className="row">
-									
-										<img id="listingimage" src={ListingModel.get("itemImage")} />
-									
+									<div className="col-xs-4 col-s-4 col-md-3 col-lg-3">
+										<div id="listingimagebox">
+											<img id="listingimage" src={ListingModel.get("itemImage")} />
+										</div>
+									</div>
 								</div>
 
 								<div className="row">
 									<div>
-										<button id="detailsbutton">Details</button>
+										<a className="btn btn-default" id="itemdetailbutton" href="#itemDetail" role="button">Details</a>
 									</div>
 								</div>	
 							</div>
@@ -68,8 +64,13 @@ module.exports = React.createClass({
 					{listEls}
 				</div> 
 					);		
-		}
-	
+		},
+
+	/*viewDetails: function(e) {
+			e.preventDefault();
+			this.props.myApps.navigate("itemDetails", {trigger:true});
+
+			}*/
 	
 });
 
