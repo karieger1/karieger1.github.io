@@ -293,12 +293,18 @@
 }
 
 #aboutyou {
+	margin-bottom: 20px;
 	text-shadow:
 	    3px 3px 0 #000,
 	   -1px -1px 0 #000,  
 	    1px -1px 0 #000,
 	   -1px  1px 0 #000,
 	    1px  1px 0 #000;
+}
+
+#aboutitem {
+	margin-top: 30px;
+	margin-bottom: 20px;
 }
 
 #listitem {
@@ -386,4 +392,18 @@
 
 #renderlistingdetail {
 	color: white;
+}
+
+/*LIST SUCCESS*/
+
+#listsuccess {
+	color:white;
+	margin-top: 160px;
+	border: 3px solid white;
+	border-radius: 30px;
+	background-color: grey;
+	opacity: .8;
+	padding-right: 40px;
+	padding-left: 40px;
+
 }

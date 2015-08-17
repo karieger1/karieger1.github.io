@@ -4,14 +4,15 @@ var ListingModel = require("../models/ListingModel");
 var ListingCollection = require("../collections/listingCollection");
 var _ = require('../../node_modules/underscore/underscore-min.js');
 
+
 module.exports = React.createClass({
 
-        componentWillMount: function() {
+        componentDidMount: function() {
             var self = this;
             this.props.listings.on("sync", function(){
                 self.forceUpdate();
             })    
-        },
+        }, 
 
         getInitialState: function() {
             return {listings: this.props.listing}

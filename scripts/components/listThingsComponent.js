@@ -17,7 +17,7 @@ module.exports = React.createClass({
 		return (
 			<div className="listingform">
 				<div className="container">
-					<center><h2 id="listyouritem">List your item!</h2></center>
+					<center><h1 id="listyouritem">List your item!</h1></center>
 					
 					
 					
@@ -87,9 +87,11 @@ module.exports = React.createClass({
 						      <option value='instruments'>Instruments</option>
 						      <option value='jewelry'>Jewelry</option>
 						      <option value='kids'>Kids stuff</option>
+						      <option value='media'>Media</option>
 						      <option value='sports'>Sports stuff</option>
 						      <option value='toys'>Toys</option>
 						      <option value='whatever'>Whatever?</option>
+
 					    </select>
 					    </div>
 

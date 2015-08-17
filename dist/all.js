@@ -33944,7 +33944,7 @@ var _ = require('../../node_modules/underscore/underscore-min.js');
 module.exports = React.createClass({
     displayName: 'exports',
 
-    componentWillMount: function componentWillMount() {
+    componentDidMount: function componentDidMount() {
         var self = this;
         this.props.listings.on('sync', function () {
             self.forceUpdate();
@@ -34024,7 +34024,7 @@ module.exports = React.createClass({
 					'center',
 					null,
 					React.createElement(
-						'h2',
+						'h1',
 						{ id: 'listyouritem' },
 						'List your item!'
 					)
@@ -34184,6 +34184,11 @@ module.exports = React.createClass({
 							),
 							React.createElement(
 								'option',
+								{ value: 'media' },
+								'Media'
+							),
+							React.createElement(
+								'option',
 								{ value: 'sports' },
 								'Sports stuff'
 							),
@@ -34307,20 +34312,44 @@ module.exports = React.createClass({
 	render: function render() {
 		return React.createElement(
 			"div",
-			{ className: "listSuccess" },
+			{ className: "successfullisting" },
 			React.createElement(
-				"h3",
-				null,
-				"Great success!"
-			),
-			React.createElement(
-				"p",
-				null,
-				"Your item is now listed on the TakeMyThings! website. ",
-				React.createElement("br", null),
-				"You should receive an email within the next few minutes that allows you to delete your posting once your item has been picked up. Remember, it is your responsibility to do so!",
-				React.createElement("br", null),
-				"Thanks so much for using TakeMyThings! You've done your good deed for the day. Carry on!"
+				"div",
+				{ className: "container", id: "listsuccess" },
+				React.createElement(
+					"center",
+					null,
+					React.createElement(
+						"h3",
+						null,
+						"Great success!"
+					)
+				),
+				React.createElement(
+					"div",
+					{ className: "row" },
+					React.createElement(
+						"div",
+						{ className: "col-xs-12 col-s-10 col-s-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" },
+						React.createElement(
+							"p",
+							null,
+							"Your item is now listed on the TakeMyThings website! ",
+							React.createElement("br", null)
+						),
+						React.createElement(
+							"p",
+							null,
+							"You should receive an email within the next few minutes that allows you to delete your posting once your item has been picked up. Remember, it is your responsibility to do so!",
+							React.createElement("br", null)
+						),
+						React.createElement(
+							"p",
+							null,
+							"Thanks so much for using TakeMyThings! You've done your good deed for the day. Carry on!"
+						)
+					)
+				)
 			)
 		);
 	}
@@ -34426,8 +34455,6 @@ filepicker.setKey('ANzsBUFgaT0q8UhqRkYmyz');
 
 React.render(React.createElement(NavBar, { myApp: myApp }), document.getElementById('navbar'));
 
-//set up router:
-
 var App = Backbone.Router.extend({
 
 	routes: {
@@ -34456,14 +34483,12 @@ var App = Backbone.Router.extend({
 			myApp: myApp }), containerEl);
 	},
 	itemDetail: function itemDetail() {
-		React.render(React.createElement(ItemDetail, { listings: listings,
-			myApp: myApp }), containerEl);
+		React.render(React.createElement(ItemDetail, { listings: listings }), containerEl);
 	},
 	giverDetail: function giverDetail() {
 		React.render(React.createElement(GiverDetail, null), containerEl);
 	},
 	listThings: function listThings() {
-		console.log('list things');
 		React.render(React.createElement(ListThings, { listing: listing,
 			myApp: myApp }), containerEl);
 	},
@@ -34471,7 +34496,6 @@ var App = Backbone.Router.extend({
 		React.render(React.createElement(ListSuccess, null), containerEl);
 	},
 	aboutUs: function aboutUs() {
-		console.log('about us');
 		React.render(React.createElement(AboutUs, null), containerEl);
 	}
 });

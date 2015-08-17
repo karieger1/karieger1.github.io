@@ -29,7 +29,6 @@ filepicker.setKey("ANzsBUFgaT0q8UhqRkYmyz");
 React.render(<NavBar myApp={myApp} />, 
 	document.getElementById("navbar"));
 
-//set up router:
 
 var App = Backbone.Router.extend({
 
@@ -47,7 +46,6 @@ var App = Backbone.Router.extend({
 
 	home: function() {
 		 React.render(
-		 	
 			<HomePage />,
 			containerEl
 		 	
@@ -71,8 +69,7 @@ var App = Backbone.Router.extend({
 	},
 	itemDetail: function() {
 		React.render(
-			<ItemDetail listings ={listings}
-			myApp={myApp} />,
+			<ItemDetail listings ={listings}/>,
 			containerEl
 		);
 	},
@@ -83,7 +80,6 @@ var App = Backbone.Router.extend({
 		);
 	},
 	listThings: function() {
-		console.log('list things')
 		React.render(
 			<ListThings listing ={listing}
 			myApp={myApp} />,
@@ -97,7 +93,6 @@ var App = Backbone.Router.extend({
 		);
 	},
 	aboutUs: function() {
-		console.log('about us')
 		 React.render(
 		 	<AboutUs />,
 		 	containerEl
