@@ -13,9 +13,7 @@ module.exports = React.createClass({
 				})
 			},
 
-		getInitialState: function() {
-			return {listings: this.props.listing}
-		},
+		
 
 	render: function() {
 			var listEls = this.props.listings.map(function(ListingModel) {
@@ -46,7 +44,9 @@ module.exports = React.createClass({
 										</div>
 									</div>
 								</div>
+/*Need to associate each listing row with an object id. When "listing details" button is clicked, router should switch to an individual corresponding itemdetailcomponent.
 
+*/
 								<div className="row">
 									<div>
 										<a className="btn btn-default" id="itemdetailbutton" href="#itemDetail" role="button">Details</a>

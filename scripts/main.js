@@ -22,7 +22,7 @@ listings.fetch();
 
 var listing = new ListingModel();
 
-var listingList = (<FindThingsList listing={listing} />);
+
 
 filepicker.setKey("ANzsBUFgaT0q8UhqRkYmyz");
 
@@ -69,7 +69,8 @@ var App = Backbone.Router.extend({
 	},
 	itemDetail: function() {
 		React.render(
-			<ItemDetail listings ={listings}/>,
+			<ItemDetail listings ={listings}
+			myApp={myApp} />,
 			containerEl
 		);
 	},

@@ -33719,10 +33719,6 @@ module.exports = React.createClass({
 		});
 	},
 
-	getInitialState: function getInitialState() {
-		return { listings: this.props.listing };
-	},
-
 	render: function render() {
 		var listEls = this.props.listings.map(function (ListingModel) {
 
@@ -33774,6 +33770,7 @@ module.exports = React.createClass({
 									)
 								)
 							),
+							'/*Need to associate each listing row with an object id. When "listing details" button is clicked, router should switch to an individual corresponding itemdetailcomponent. */',
 							React.createElement(
 								'div',
 								{ className: 'row' },
@@ -33956,7 +33953,7 @@ module.exports = React.createClass({
     },
 
     render: function render() {
-        var listEls = this.props.listings.map(function (ListingModel) {
+        var detailEls = this.props.listings.map(function (ListingModel) {
             return React.createElement(
                 'div',
                 { id: 'renderlistingdetail' },
@@ -33981,18 +33978,37 @@ module.exports = React.createClass({
                                     'h4',
                                     null,
                                     ListingModel.get('title')
-                                ),
-                                React.createElement(
-                                    'button',
-                                    { id: 'giverinfo' },
-                                    'Get giver info'
                                 )
+                            ),
+                            React.createElement(
+                                'div',
+                                { className: 'row' },
+                                React.createElement(
+                                    'div',
+                                    { id: 'itemdetail', className: 'col-xs-12 col-s-8 col-s-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3' },
+                                    React.createElement(
+                                        'p',
+                                        null,
+                                        ListingModel.get('description')
+                                    )
+                                )
+                            ),
+                            React.createElement(
+                                'button',
+                                { id: 'giverinfo' },
+                                'Get giver info'
                             )
                         )
                     )
                 )
             );
         });
+
+        return React.createElement(
+            'div',
+            { className: 'detailElements' },
+            detailEls
+        );
     }
 });
 
@@ -34186,6 +34202,11 @@ module.exports = React.createClass({
 								'option',
 								{ value: 'media' },
 								'Media'
+							),
+							React.createElement(
+								'option',
+								{ value: 'pets' },
+								'Pet supplies'
 							),
 							React.createElement(
 								'option',
@@ -34449,8 +34470,6 @@ listings.fetch();
 
 var listing = new ListingModel();
 
-var listingList = React.createElement(FindThingsList, { listing: listing });
-
 filepicker.setKey('ANzsBUFgaT0q8UhqRkYmyz');
 
 React.render(React.createElement(NavBar, { myApp: myApp }), document.getElementById('navbar'));
@@ -34483,7 +34502,8 @@ var App = Backbone.Router.extend({
 			myApp: myApp }), containerEl);
 	},
 	itemDetail: function itemDetail() {
-		React.render(React.createElement(ItemDetail, { listings: listings }), containerEl);
+		React.render(React.createElement(ItemDetail, { listings: listings,
+			myApp: myApp }), containerEl);
 	},
 	giverDetail: function giverDetail() {
 		React.render(React.createElement(GiverDetail, null), containerEl);

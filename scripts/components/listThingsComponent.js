@@ -88,6 +88,7 @@ module.exports = React.createClass({
 						      <option value='jewelry'>Jewelry</option>
 						      <option value='kids'>Kids stuff</option>
 						      <option value='media'>Media</option>
+						      <option value='pets'>Pet supplies</option>
 						      <option value='sports'>Sports stuff</option>
 						      <option value='toys'>Toys</option>
 						      <option value='whatever'>Whatever?</option>
