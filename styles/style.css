@@ -373,14 +373,15 @@
 	padding-left: 30px;
 }
 
-#detailsbutton {
+#itemdetailbutton {
 	float: right;
 	margin-bottom: 10px;
 	background-color: black;
 	border:1px solid white;
 	border-radius: 50px;
-	padding:5px;
+	padding:10px;
 	margin-right:40px;
+	color: white;
 }
 
 #listingimagebox {
@@ -391,6 +392,23 @@
 /*ITEM DETAIL*/
 
 #renderlistingdetail {
+	color: white;
+	margin-top: 50px;
+
+}
+
+#listingheading {
+	text-align: center;
+}
+
+#giverinfo {
+	float: right;
+	margin-bottom: 10px;
+	background-color: black;
+	border:1px solid white;
+	border-radius: 50px;
+	padding:10px;
+	margin-right:40px;
 	color: white;
 }
 

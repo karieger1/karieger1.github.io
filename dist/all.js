@@ -33797,33 +33797,83 @@ module.exports = React.createClass({
 	}
 
 });
-/*viewDetails: function(e) {
-		e.preventDefault();
-		this.props.myApps.navigate("itemDetails", {trigger:true});
-			}*/
 
 },{"../../node_modules/underscore/underscore-min.js":161,"../collections/listingCollection":163,"../models/ListingModel":175,"jquery":5,"react":160}],167:[function(require,module,exports){
-"use strict";
+'use strict';
 
-var React = require("react");
+var React = require('react');
+var $ = require('jquery');
+var ListingModel = require('../models/ListingModel');
+var ListingCollection = require('../collections/listingCollection');
+var _ = require('../../node_modules/underscore/underscore-min.js');
 
 module.exports = React.createClass({
-	displayName: "exports",
+	displayName: 'exports',
+
+	componentDidMount: function componentDidMount() {
+		var self = this;
+		this.props.listing.on('sync', function () {
+			self.forceUpdate();
+		});
+	},
+
+	getInitialState: function getInitialState() {
+		return { listing: this.props.listing };
+	},
 
 	render: function render() {
+		var giverEls = this.props.listing.map(function (ListingModel) {
+			return React.createElement(
+				'div',
+				{ id: 'userdetail' },
+				React.createElement(
+					'div',
+					{ key: ListingModel.cid },
+					React.createElement(
+						'div',
+						{ className: 'container' },
+						React.createElement(
+							'div',
+							{ className: 'row' },
+							React.createElement(
+								'div',
+								{ className: 'col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-6 col-lg-3 col-md-offset-6' },
+								React.createElement(
+									'h6',
+									null,
+									ListingModel.get('userName')
+								)
+							)
+						),
+						React.createElement(
+							'div',
+							{ className: 'row' },
+							React.createElement(
+								'div',
+								{ id: 'listingzip', className: 'col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-6 col-lg-3 col-md-offset-6' },
+								React.createElement(
+									'p',
+									null,
+									ListingModel.get('userZip'),
+									' '
+								)
+							)
+						)
+					)
+				)
+			);
+		});
+
 		return React.createElement(
-			"div",
-			null,
-			React.createElement(
-				"form",
-				{ name: "giverdetails" },
-				"Giver name: //data Givers email: //data Givers phone: //data Givers address: //data Pick up or text first? //data"
-			)
+			'div',
+			{ className: 'giverElements' },
+			giverEls
 		);
 	}
+
 });
 
-},{"react":160}],168:[function(require,module,exports){
+},{"../../node_modules/underscore/underscore-min.js":161,"../collections/listingCollection":163,"../models/ListingModel":175,"jquery":5,"react":160}],168:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -33965,7 +34015,7 @@ module.exports = React.createClass({
                         { className: 'container' },
                         React.createElement(
                             'h2',
-                            null,
+                            { id: 'listingheading' },
                             'Listing details:'
                         ),
                         React.createElement(
@@ -33994,9 +34044,22 @@ module.exports = React.createClass({
                                 )
                             ),
                             React.createElement(
-                                'button',
-                                { id: 'giverinfo' },
-                                'Get giver info'
+                                'div',
+                                { className: 'row' },
+                                React.createElement(
+                                    'div',
+                                    { id: 'itemdetail', className: 'col-xs-12 col-s-8 col-s-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3' },
+                                    React.createElement(
+                                        'p',
+                                        null,
+                                        ListingModel.get('userZip')
+                                    )
+                                )
+                            ),
+                            React.createElement(
+                                'a',
+                                { className: 'btn btn-default', id: 'giverinfo', href: '#giverDetail', role: 'button' },
+                                'Giver details'
                             )
                         )
                     )
@@ -34506,7 +34569,8 @@ var App = Backbone.Router.extend({
 			myApp: myApp }), containerEl);
 	},
 	giverDetail: function giverDetail() {
-		React.render(React.createElement(GiverDetail, null), containerEl);
+		React.render(React.createElement(GiverDetail, { listings: listings,
+			myApp: myApp }), containerEl);
 	},
 	listThings: function listThings() {
 		React.render(React.createElement(ListThings, { listing: listing,

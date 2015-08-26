@@ -65,12 +65,6 @@ module.exports = React.createClass({
 				</div> 
 					);		
 		},
-
-	/*viewDetails: function(e) {
-			e.preventDefault();
-			this.props.myApps.navigate("itemDetails", {trigger:true});
-
-			}*/
 	
 });
 

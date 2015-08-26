@@ -76,7 +76,8 @@ var App = Backbone.Router.extend({
 	},
 	giverDetail: function() {
 		React.render(
-			<GiverDetail />,
+			<GiverDetail listings ={listings}
+			myApp={myApp} />,
 			containerEl
 		);
 	},
