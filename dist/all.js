@@ -33733,28 +33733,29 @@ module.exports = React.createClass({
 						{ className: 'container', id: 'listingbox' },
 						React.createElement(
 							'div',
-							{ className: 'col-xs-12 col-sm-12 col-md-12 col-lg-12' },
+							{ className: 'col-xs-12 col-sm-8 col-md-6 col-lg-4' },
 							React.createElement(
 								'div',
 								{ className: 'row' },
 								React.createElement(
 									'div',
-									{ className: 'col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-6 col-lg-3 col-md-offset-6' },
+									{ className: 'listingtitlebox' },
 									React.createElement(
 										'h4',
-										null,
+										{ id: 'listingtitle' },
 										ListingModel.get('title')
 									)
-								)
-							),
-							React.createElement(
-								'div',
-								{ id: 'listingzip', className: 'col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-6 col-lg-3 col-md-offset-6' },
+								),
 								React.createElement(
-									'p',
-									null,
-									ListingModel.get('userZip'),
-									' '
+									'div',
+									{ id: 'listingzip', className: 'listingzipbox' },
+									React.createElement(
+										'p',
+										null,
+										'Location:   ',
+										ListingModel.get('userZip'),
+										' '
+									)
 								)
 							),
 							React.createElement(
@@ -33768,9 +33769,17 @@ module.exports = React.createClass({
 										{ id: 'listingimagebox' },
 										React.createElement('img', { id: 'listingimage', src: ListingModel.get('itemImage') })
 									)
+								),
+								React.createElement(
+									'div',
+									{ className: 'descrip' },
+									React.createElement(
+										'p',
+										{ id: 'listingdescr' },
+										ListingModel.get('description')
+									)
 								)
 							),
-							'/*Need to associate each listing row with an object id. When "listing details" button is clicked, router should switch to an individual corresponding itemdetailcomponent. */',
 							React.createElement(
 								'div',
 								{ className: 'row' },
@@ -33779,8 +33788,8 @@ module.exports = React.createClass({
 									null,
 									React.createElement(
 										'a',
-										{ className: 'btn btn-default', id: 'itemdetailbutton', href: '#itemDetail', role: 'button' },
-										'Details'
+										{ className: 'btn btn-default', id: 'itemdetailbutton', href: '#itemDetail/' + ListingModel.id, role: 'button' },
+										'More details'
 									)
 								)
 							)
@@ -33822,7 +33831,7 @@ module.exports = React.createClass({
 	},
 
 	render: function render() {
-		var giverEls = this.props.listing.map(function (ListingModel) {
+		var giverEls = this.props.listings.map(function (ListingModel) {
 			return React.createElement(
 				'div',
 				{ id: 'userdetail' },
@@ -33996,13 +34005,17 @@ module.exports = React.createClass({
         this.props.listings.on('sync', function () {
             self.forceUpdate();
         });
+        console.log(this.props.id);
     },
 
     getInitialState: function getInitialState() {
-        return { listings: this.props.listing };
+
+        var individuallisting = _.findWhere(ListingCollection, { objectId: this.props.id });
+        //use underscore method findWhere ListingCollection {props.id}
     },
 
     render: function render() {
+        //get rid of map
         var detailEls = this.props.listings.map(function (ListingModel) {
             return React.createElement(
                 'div',
@@ -34074,6 +34087,8 @@ module.exports = React.createClass({
         );
     }
 });
+
+//build out html here
 
 },{"../../node_modules/underscore/underscore-min.js":161,"../collections/listingCollection":163,"../models/ListingModel":175,"jquery":5,"react":160}],170:[function(require,module,exports){
 'use strict';
@@ -34543,7 +34558,7 @@ var App = Backbone.Router.extend({
 		'': 'home',
 		'home': 'home',
 		'findThingsMap': 'findThingsMap',
-		'itemDetail': 'itemDetail',
+		'itemDetail/:id': 'itemDetail',
 		'findThingsList': 'findThingsList',
 		'giverDetail': 'giverDetail',
 		'listThings': 'listThings',
@@ -34564,8 +34579,9 @@ var App = Backbone.Router.extend({
 		React.render(React.createElement(FindThingsList, { listings: listings,
 			myApp: myApp }), containerEl);
 	},
-	itemDetail: function itemDetail() {
-		React.render(React.createElement(ItemDetail, { listings: listings,
+	itemDetail: function itemDetail(id) {
+		console.log(id);
+		React.render(React.createElement(ItemDetail, { id: id, listings: listings,
 			myApp: myApp }), containerEl);
 	},
 	giverDetail: function giverDetail() {

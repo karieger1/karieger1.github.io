@@ -12,13 +12,18 @@ module.exports = React.createClass({
             this.props.listings.on("sync", function(){
                 self.forceUpdate();
             })    
+            console.log(this.props.id)
+
         }, 
 
         getInitialState: function() {
-            return {listings: this.props.listing}
+            
+           var individuallisting = _.findWhere(ListingCollection, {objectId: this.props.id});
+            //use underscore method findWhere ListingCollection {props.id}
         },
  
     render: function () {
+    //get rid of map
         var detailEls = this.props.listings.map(function(ListingModel) {
     		return (
 
@@ -55,6 +60,7 @@ module.exports = React.createClass({
                 <div className="detailElements"> 
                     {detailEls}
                 </div> 
+                //build out html here
         );  
 
     },   

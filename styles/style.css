@@ -362,19 +362,15 @@
 
 #renderlistings {
 	color: white;
+	margin-top: 50px;
 }
 
 #listingbox {
-	border: 1px solid grey;
-}
-
-#listingzip {
-	clear:both;
-	padding-left: 30px;
+	border: 1px solid white;
 }
 
 #itemdetailbutton {
-	float: right;
+	float: right !important;
 	margin-bottom: 10px;
 	background-color: black;
 	border:1px solid white;
@@ -382,11 +378,43 @@
 	padding:10px;
 	margin-right:40px;
 	color: white;
+	height: 50px;
+	width:140px;
+	font-size: 18px;
 }
 
-#listingimagebox {
-	float: left;
+#itemdetailbutton:hover {
+	background-color: turquoise;
+	font-weight: bolder;
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
+}
 
+#listingimage {
+	width:160px;
+	height: 200px;
+
+}
+
+#listingtitle {
+	font-size: 30px;
+	margin-left: 50px;
+	float: left;
+}
+
+#listingzip {
+	float: right;
+	margin-top: 14px;
+	margin-right: 40px;
+	font-size: 16px;
+}
+
+.descrip {
+	float: right;
 }
 
 /*ITEM DETAIL*/
@@ -398,7 +426,7 @@
 }
 
 #listingheading {
-	text-align: center;
+	margin-left: 100px;
 }
 
 #giverinfo {
@@ -409,6 +437,10 @@
 	border-radius: 50px;
 	padding:10px;
 	margin-right:40px;
+	color: white;
+}
+
+#userdetail {
 	color: white;
 }
 

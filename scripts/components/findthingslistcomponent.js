@@ -24,32 +24,36 @@ module.exports = React.createClass({
 
 					<div key={ListingModel.cid}>
 						<div className="container" id="listingbox">
-							<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div className="col-xs-12 col-sm-8 col-md-6 col-lg-4">
 								<div className="row">
 								
-									<div className="col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-6 col-lg-3 col-md-offset-6">
-										<h4>{ListingModel.get("title")}</h4>
+									<div className="listingtitlebox">
+										<h4 id="listingtitle">{ListingModel.get("title")}</h4>
 									</div>
+							
+								
+									<div id="listingzip" className="listingzipbox">
+										<p>Location:   {ListingModel.get("userZip")} </p>
+									</div>
+								
 								</div>
-								
-								<div id="listingzip" className="col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-6 col-lg-3 col-md-offset-6">
-									<p>{ListingModel.get("userZip")} </p>
-								</div>
-								
-								
+
 								<div className="row">
 									<div className="col-xs-4 col-s-4 col-md-3 col-lg-3">
 										<div id="listingimagebox">
 											<img id="listingimage" src={ListingModel.get("itemImage")} />
 										</div>
 									</div>
+	
+					
+									<div className="descrip">
+										<p id="listingdescr">{ListingModel.get("description")}</p>
+									</div>
 								</div>
-/*Need to associate each listing row with an object id. When "listing details" button is clicked, router should switch to an individual corresponding itemdetailcomponent.
 
-*/
 								<div className="row">
 									<div>
-										<a className="btn btn-default" id="itemdetailbutton" href="#itemDetail" role="button">Details</a>
+										<a className="btn btn-default" id="itemdetailbutton" href={'#itemDetail/'+ListingModel.id} role="button">More details</a>
 									</div>
 								</div>	
 							</div>

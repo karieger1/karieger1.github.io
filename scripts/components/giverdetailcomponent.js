@@ -19,8 +19,8 @@ module.exports = React.createClass({
         },
 
 	render: function() {
-			var giverEls = this.props.listing.map(function(ListingModel) {
-				return (
+		var giverEls = this.props.listings.map(function(ListingModel) {
+			return (
 					
 				<div id="userdetail">
 

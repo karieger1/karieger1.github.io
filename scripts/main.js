@@ -36,7 +36,7 @@ var App = Backbone.Router.extend({
 		'': 		       'home',
 		'home': 		   'home',
 		'findThingsMap':   'findThingsMap',
-		'itemDetail': 	   'itemDetail',
+		'itemDetail/:id': 	   'itemDetail',
 		'findThingsList':  'findThingsList',
 		'giverDetail':     'giverDetail',
 		'listThings':      'listThings',
@@ -67,9 +67,10 @@ var App = Backbone.Router.extend({
 			containerEl
 		);
 	},
-	itemDetail: function() {
+	itemDetail: function(id) {
+		console.log(id);
 		React.render(
-			<ItemDetail listings ={listings}
+			<ItemDetail id={id} listings ={listings}
 			myApp={myApp} />,
 			containerEl
 		);
