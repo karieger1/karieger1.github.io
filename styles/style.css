@@ -1,3 +1,8 @@
+body {
+	background: url("../images/background.jpg");
+	/*background-size: cover;*/
+}
+
 .mainheading {
 	font-family: Courier;
 	
@@ -370,13 +375,13 @@
 }
 
 #itemdetailbutton {
-	float: right !important;
+	
 	margin-bottom: 10px;
 	background-color: black;
 	border:1px solid white;
 	border-radius: 50px;
 	padding:10px;
-	margin-right:40px;
+	/*margin-right:40px;*/
 	color: white;
 	height: 50px;
 	width:140px;
@@ -401,7 +406,7 @@
 }
 
 #listingtitle {
-	font-size: 30px;
+	font-size: 26px;
 	margin-left: 50px;
 	float: left;
 }
@@ -414,7 +419,7 @@
 }
 
 .descrip {
-	float: right;
+	clear: both;
 }
 
 /*ITEM DETAIL*/
@@ -442,6 +447,12 @@
 
 #userdetail {
 	color: white;
+}
+
+/*ITEM DETAIL COMPONENT*/
+
+#listingdetailbox {
+	border: solid white 1px;
 }
 
 /*LIST SUCCESS*/

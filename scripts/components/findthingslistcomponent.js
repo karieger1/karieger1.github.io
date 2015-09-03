@@ -33,19 +33,16 @@ module.exports = React.createClass({
 							
 								
 									<div id="listingzip" className="listingzipbox">
-										<p>Location:   {ListingModel.get("userZip")} </p>
+										<p>Location:  {ListingModel.get("userZip")} </p>
 									</div>
 								
 								</div>
 
 								<div className="row">
 									<div className="col-xs-4 col-s-4 col-md-3 col-lg-3">
-										<div id="listingimagebox">
 											<img id="listingimage" src={ListingModel.get("itemImage")} />
-										</div>
 									</div>
 	
-					
 									<div className="descrip">
 										<p id="listingdescr">{ListingModel.get("description")}</p>
 									</div>

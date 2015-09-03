@@ -5,7 +5,6 @@ var ListingCollection = require('./collections/listingCollection');
 
 var containerEl = document.getElementById("container");
 
-
 var GiverDetail = require("./components/giverdetailcomponent");
 var ItemDetail = require("./components/itemdetailcomponent");
 var ListSuccess = require("./components/listsuccesscomponent");
@@ -23,7 +22,6 @@ listings.fetch();
 var listing = new ListingModel();
 
 
-
 filepicker.setKey("ANzsBUFgaT0q8UhqRkYmyz");
 
 React.render(<NavBar myApp={myApp} />, 
@@ -36,7 +34,7 @@ var App = Backbone.Router.extend({
 		'': 		       'home',
 		'home': 		   'home',
 		'findThingsMap':   'findThingsMap',
-		'itemDetail/:id': 	   'itemDetail',
+		'itemDetail/:id': 	'itemDetail',
 		'findThingsList':  'findThingsList',
 		'giverDetail':     'giverDetail',
 		'listThings':      'listThings',
@@ -68,7 +66,7 @@ var App = Backbone.Router.extend({
 		);
 	},
 	itemDetail: function(id) {
-		console.log(id);
+		console.log(id)
 		React.render(
 			<ItemDetail id={id} listings ={listings}
 			myApp={myApp} />,

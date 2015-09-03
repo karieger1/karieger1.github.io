@@ -8,6 +8,8 @@ module.exports = React.createClass({
 		}
 	},
 	componentDidMount: function() {
+
+		//use if/else statement 
 		google.maps.event.addDomListener(window, 'load', this.createMap);
 	},
 	render: function() {
@@ -35,6 +37,7 @@ module.exports = React.createClass({
 		);
 	},
 	createMap: function() {
+		console.log("create map")
 		var mapOptions = {
 			center: { lat: 30.3077609, lng: -97.7534014},
 			zoom: 8

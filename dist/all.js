@@ -33602,6 +33602,8 @@ module.exports = React.createClass({
 		};
 	},
 	componentDidMount: function componentDidMount() {
+
+		//use if/else statement
 		google.maps.event.addDomListener(window, 'load', this.createMap);
 	},
 	render: function render() {
@@ -33650,6 +33652,7 @@ module.exports = React.createClass({
 		);
 	},
 	createMap: function createMap() {
+		console.log('create map');
 		var mapOptions = {
 			center: { lat: 30.3077609, lng: -97.7534014 },
 			zoom: 8
@@ -33752,7 +33755,7 @@ module.exports = React.createClass({
 									React.createElement(
 										'p',
 										null,
-										'Location:   ',
+										'Location:  ',
 										ListingModel.get('userZip'),
 										' '
 									)
@@ -33764,11 +33767,7 @@ module.exports = React.createClass({
 								React.createElement(
 									'div',
 									{ className: 'col-xs-4 col-s-4 col-md-3 col-lg-3' },
-									React.createElement(
-										'div',
-										{ id: 'listingimagebox' },
-										React.createElement('img', { id: 'listingimage', src: ListingModel.get('itemImage') })
-									)
+									React.createElement('img', { id: 'listingimage', src: ListingModel.get('itemImage') })
 								),
 								React.createElement(
 									'div',
@@ -33851,6 +33850,20 @@ module.exports = React.createClass({
 									'h6',
 									null,
 									ListingModel.get('userName')
+								)
+							)
+						),
+						React.createElement(
+							'div',
+							{ className: 'row' },
+							React.createElement(
+								'div',
+								{ id: 'listingzip', className: 'col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-6 col-lg-3 col-md-offset-6' },
+								React.createElement(
+									'p',
+									null,
+									ListingModel.get('userAddress'),
+									' '
 								)
 							)
 						),
@@ -34003,87 +34016,101 @@ module.exports = React.createClass({
     componentDidMount: function componentDidMount() {
         var self = this;
         this.props.listings.on('sync', function () {
-            self.forceUpdate();
+            var singlelisting = self.props.listings.findWhere({ objectId: self.props.id });
+            self.setState({ listing: singlelisting });
+            console.log('listings sync');
         });
         console.log(this.props.id);
     },
 
     getInitialState: function getInitialState() {
 
-        var individuallisting = _.findWhere(ListingCollection, { objectId: this.props.id });
-        //use underscore method findWhere ListingCollection {props.id}
+        return { listing: {} };
     },
 
     render: function render() {
-        //get rid of map
-        var detailEls = this.props.listings.map(function (ListingModel) {
-            return React.createElement(
+        console.log(this.state.listing);
+
+        //    var detailEls = this.props.listings(function(ListingModel) {
+        // 	return (
+
+        //            <div id="renderlistingdetail">
+
+        //                <div key={ListingModel.cid}>
+        //        			<div className="container" id="listingdetailbox">
+        //                    <h2 id="listingheading">Listing details:</h2>
+        //          				<div className="row">
+        //          					<div id="itemdetail" className="col-xs-12 col-s-8 col-s-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+        //          						<h4>{ListingModel.get("title")}</h4>
+
+        //                            </div>
+        //                        </div>
+        //                        <div className="row">
+        //                            <div className="col-xs-4 col-s-4 col-md-3 col-lg-3">
+        //                                    <div id="listingimagebox">
+        //                                        <img id="listingimage" src={ListingModel.get("itemImage")} />
+        //                                    </div>
+        //                            </div>
+        //                            <div id="itemdetail" className="col-xs-12 col-s-8 col-s-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+        //                                <p>{ListingModel.get("description")}</p>
+        //                            </div>
+        //                            <div id="itemdetail" className="col-xs-12 col-s-8 col-s-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+        //                                <p>{ListingModel.get("userZip")}</p>
+        //                            </div>
+        //                        </div>
+        //                        <div className="row">
+        //                            <div className="col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-6 col-lg-3 col-md-offset-6">
+        //                                <h6>{ListingModel.get("userName")}</h6>
+        //                            </div>
+        //                        </div>
+        //                        <div className="row">  
+        //                            <div id="listingzip" className="col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-6 col-lg-3 col-md-offset-6">
+        //                                <p>{ListingModel.get("userAddress")} </p>
+        //                            </div>
+        //                        </div>
+
+        //                        <div className="row">  
+        //                            <div id="listingzip" className="col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-6 col-lg-3 col-md-offset-6">
+        //                                <p>{ListingModel.get("userZip")} </p>
+        //                            </div>
+        //                        </div>
+        //          			</div>
+        //        		</div>
+
+        //            </div>
+
+        // 	);
+        // });
+
+        return React.createElement(
+            'div',
+            { id: 'renderlistingdetail' },
+            React.createElement(
                 'div',
-                { id: 'renderlistingdetail' },
+                { key: ListingModel.cid },
                 React.createElement(
                     'div',
-                    { key: ListingModel.cid },
+                    { className: 'container', id: 'listingdetailbox' },
+                    React.createElement(
+                        'h2',
+                        { id: 'listingheading' },
+                        'Listing details:'
+                    ),
                     React.createElement(
                         'div',
-                        { className: 'container' },
-                        React.createElement(
-                            'h2',
-                            { id: 'listingheading' },
-                            'Listing details:'
-                        ),
+                        { className: 'row' },
                         React.createElement(
                             'div',
-                            { className: 'row' },
+                            { id: 'itemdetail', className: 'col-xs-12 col-s-8 col-s-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3' },
                             React.createElement(
-                                'div',
-                                { id: 'itemdetail', className: 'col-xs-12 col-s-8 col-s-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3' },
-                                React.createElement(
-                                    'h4',
-                                    null,
-                                    ListingModel.get('title')
-                                )
-                            ),
-                            React.createElement(
-                                'div',
-                                { className: 'row' },
-                                React.createElement(
-                                    'div',
-                                    { id: 'itemdetail', className: 'col-xs-12 col-s-8 col-s-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3' },
-                                    React.createElement(
-                                        'p',
-                                        null,
-                                        ListingModel.get('description')
-                                    )
-                                )
-                            ),
-                            React.createElement(
-                                'div',
-                                { className: 'row' },
-                                React.createElement(
-                                    'div',
-                                    { id: 'itemdetail', className: 'col-xs-12 col-s-8 col-s-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3' },
-                                    React.createElement(
-                                        'p',
-                                        null,
-                                        ListingModel.get('userZip')
-                                    )
-                                )
-                            ),
-                            React.createElement(
-                                'a',
-                                { className: 'btn btn-default', id: 'giverinfo', href: '#giverDetail', role: 'button' },
-                                'Giver details'
+                                'h4',
+                                null,
+                                this.listings.get.title
                             )
                         )
                     )
                 )
-            );
-        });
-
-        return React.createElement(
-            'div',
-            { className: 'detailElements' },
-            detailEls
+            )
         );
     }
 });

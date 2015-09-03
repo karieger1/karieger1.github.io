@@ -34,6 +34,12 @@ module.exports = React.createClass({
 							
 							<div className="row">	
 								<div id="listingzip" className="col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-6 col-lg-3 col-md-offset-6">
+									<p>{ListingModel.get("userAddress")} </p>
+								</div>
+							</div>
+							
+							<div className="row">	
+								<div id="listingzip" className="col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-6 col-lg-3 col-md-offset-6">
 									<p>{ListingModel.get("userZip")} </p>
 								</div>
 							</div>
