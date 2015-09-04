@@ -14,19 +14,32 @@ module.exports = React.createClass ({
 					  		</div>
 					  	</div>
 					</div>
-
-					  <center><p><a className="btn btn-primary btn-lg" id="button1" href="#listThings" role="button">Get rid of things</a></p></center>
-					  <center><p><a className="btn btn-primary btn-lg" id="button2" href="#findThingsMap" role="button">Find things</a></p></center>
-				<div className="goalscircle">
-					<div id="goalsHeading">TMT's goals are threefold:</div>
-						<div className="goals">	
-							<div id="goal1">Reduce<br/> waste</div>
-							<div id="goal2">Help <br/> others</div>
-							<div id ="goal3"> Have <br/> fun</div>
+					<div className="container">
+						<div className="row">
+							<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+								<a className="btn btn-primary btn-lg" id="button1" href="#listThings" role="button">Get rid of things</a>
+							</div>
+							<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+								<a className="btn btn-primary btn-lg" id="button2" href="#findThingsMap" role="button">Find things</a>
+							</div>
 						</div>
-					
+					</div>
+				<div id="goalscircle">
+					<div id="goalsHeading">TMT's goals are threefold:</div>
+						
+							<div className="container">
+								<div className="row">
+									<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">	
+									<div id="goal1">Reduce<br/> waste</div>
+									<div id="goal2">Help <br/> others</div>
+									<div id ="goal3"> Have <br/> fun</div>
+								</div>	
+							</div>
+					</div>
 				</div>
+					
 			</div>
+			
 
 		);
 	}

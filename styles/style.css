@@ -57,9 +57,9 @@ body {
 }
 
 #button1 {
-	display: inline-block;
+	/*display: inline-block;*/
 	background-color: transparent; !important;
-	float: left;
+	/*float: left;*/
 	border: solid white 3px;
 	background-color: black;
 	opacity: 0.7;
@@ -67,8 +67,10 @@ body {
 	padding-top: 33px;
 	width: 250px;
 	height: 100px;
-	margin-left: 100px;	
+	/*margin-left: 100px;	*/
 	font-size: 20px;
+	 margin:0 auto;
+    display:block;
 }
 
 #button1:hover {
@@ -83,9 +85,9 @@ body {
 }
 
 #button2 {
-	display: inline-block;
+	/*display: inline-block;*/
 	background-color: transparent; !important;	
-	float: right;	
+	/*float: right;*/	
 	border: solid white 3px;
 	background-color: black;
 	opacity: 0.7;
@@ -93,8 +95,10 @@ body {
 	padding-top: 33px;
 	width: 250px;
 	height: 100px;
-	margin-right: 100px;
-	font-size: 20px;	
+	/*margin-right: 100px;*/
+	font-size: 20px;
+	 margin:0 auto;
+    display:block;	
 
 }
 
@@ -134,7 +138,7 @@ body {
 	
 
 }
-.goalscircle {
+#goalscircle {
 	margin-top: 20px;
 	text-shadow:
 	    3px 3px 0 #000,
@@ -227,7 +231,7 @@ body {
 	
 }
 
-.goalscircle {
+#goalscircle {
 	padding-bottom: 50px;
 }
 
