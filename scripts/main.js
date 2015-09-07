@@ -21,7 +21,6 @@ listings.fetch();
 
 var listing = new ListingModel();
 
-
 filepicker.setKey("ANzsBUFgaT0q8UhqRkYmyz");
 
 React.render(<NavBar myApp={myApp} />, 

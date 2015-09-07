@@ -33736,60 +33736,70 @@ module.exports = React.createClass({
 						{ className: 'container', id: 'listingbox' },
 						React.createElement(
 							'div',
-							{ className: 'col-xs-12 col-sm-8 col-md-6 col-lg-4' },
+							{ className: 'row' },
 							React.createElement(
 								'div',
-								{ className: 'row' },
+								{ className: 'col-xs-10 col-sm-8 col-md-6 col-lg-4' },
 								React.createElement(
-									'div',
-									{ className: 'listingtitlebox' },
-									React.createElement(
-										'h4',
-										{ id: 'listingtitle' },
-										ListingModel.get('title')
-									)
-								),
-								React.createElement(
-									'div',
-									{ id: 'listingzip', className: 'listingzipbox' },
-									React.createElement(
-										'p',
-										null,
-										'Location:  ',
-										ListingModel.get('userZip'),
-										' '
-									)
+									'h4',
+									{ id: 'listingtitle' },
+									ListingModel.get('title')
 								)
 							),
 							React.createElement(
 								'div',
-								{ className: 'row' },
+								{ className: 'col-xs-10 col-sm-8 col-md-6 col-lg-4', id: 'listingzip' },
 								React.createElement(
-									'div',
-									{ className: 'col-xs-4 col-s-4 col-md-3 col-lg-3' },
-									React.createElement('img', { id: 'listingimage', src: ListingModel.get('itemImage') })
-								),
-								React.createElement(
-									'div',
-									{ className: 'descrip' },
-									React.createElement(
-										'p',
-										{ id: 'listingdescr' },
-										ListingModel.get('description')
-									)
-								)
-							),
-							React.createElement(
-								'div',
-								{ className: 'row' },
-								React.createElement(
-									'div',
+									'p',
 									null,
-									React.createElement(
-										'a',
-										{ className: 'btn btn-default', id: 'itemdetailbutton', href: '#itemDetail/' + ListingModel.id, role: 'button' },
-										'More details'
-									)
+									'Location:  ',
+									ListingModel.get('userZip'),
+									' '
+								)
+							),
+							'// ',
+							React.createElement(
+								'div',
+								{ className: 'col-xs-10 col-sm-8 col-md-6 col-lg-4', id: 'createdat' },
+								'//  ',
+								React.createElement(
+									'p',
+									null,
+									'List date:  jQuery.format.prettyDate(',
+									ListingModel.get('createdAt'),
+									') '
+								),
+								'// '
+							)
+						),
+						React.createElement(
+							'div',
+							{ className: 'row' },
+							React.createElement(
+								'div',
+								{ className: 'col-xs-4 col-s-4 col-md-3 col-lg-3' },
+								React.createElement('img', { id: 'listingimage', src: ListingModel.get('itemImage') })
+							),
+							React.createElement(
+								'div',
+								{ className: 'descrip' },
+								React.createElement(
+									'p',
+									{ id: 'listingdescr' },
+									ListingModel.get('description')
+								)
+							)
+						),
+						React.createElement(
+							'div',
+							{ className: 'row' },
+							React.createElement(
+								'div',
+								null,
+								React.createElement(
+									'a',
+									{ className: 'btn btn-default', id: 'itemdetailbutton', href: '#itemDetail/' + ListingModel.id, role: 'button' },
+									'More details'
 								)
 							)
 						)
@@ -33964,46 +33974,9 @@ module.exports = React.createClass({
 				)
 			),
 			React.createElement(
-				"div",
-				{ id: "goalscircle" },
-				React.createElement(
-					"div",
-					{ id: "goalsHeading" },
-					"TMT's goals are threefold:"
-				),
-				React.createElement(
-					"div",
-					{ className: "container" },
-					React.createElement(
-						"div",
-						{ className: "row" },
-						React.createElement(
-							"div",
-							{ className: "col-xs-12 col-sm-12 col-md-6 col-lg-6" },
-							React.createElement(
-								"div",
-								{ id: "goal1" },
-								"Reduce",
-								React.createElement("br", null),
-								" waste"
-							),
-							React.createElement(
-								"div",
-								{ id: "goal2" },
-								"Help ",
-								React.createElement("br", null),
-								" others"
-							),
-							React.createElement(
-								"div",
-								{ id: "goal3" },
-								" Have ",
-								React.createElement("br", null),
-								" fun"
-							)
-						)
-					)
-				)
+				"p",
+				{ id: "tmtgoals" },
+				"TMT has three main goals: To reduce waste, to help those in need, and to bring out the treasure hunter in all of us!"
 			)
 		);
 	}
@@ -34059,7 +34032,7 @@ module.exports = React.createClass({
                         React.createElement(
                             'h4',
                             null,
-                            this.listing.get.title
+                            this.listing.get('title')
                         )
                     )
                 )
@@ -34443,82 +34416,68 @@ module.exports = React.createClass({
 	displayName: "exports",
 
 	render: function render() {
-		return (
-			// <!-- Navigation -->
-			// <div id="navnav" classNameName="navcontainer">
-			// 	  <ul classNameName="nav nav-pills" id="navpills">
-
-			// 			<li role="presentation" id="homenav"><a href="#home">Home</a></li>
-			// 			<li role="presentation" id="findnav"><a href="#findThingsMap">Find things!</a></li>
-			// 			<li role="presentation" id="listnav"><a href="#listThings">List things!</a></li>
-			// 			<li role="presentation" id="aboutnav"><a href="#aboutUs">About us!</a></li>
-
-			// 	   </ul>
-			// </div>
-
+		return React.createElement(
+			"nav",
+			{ className: "navbar navbar-inverse navbar-static-top", role: "navigation", id: "navbar" },
 			React.createElement(
-				"nav",
-				{ className: "navbar navbar-inverse navbar-static-top", role: "navigation" },
+				"div",
+				{ className: "container" },
 				React.createElement(
 					"div",
-					{ className: "container" },
+					{ className: "navbar-header" },
 					React.createElement(
-						"div",
-						{ className: "navbar-header" },
+						"button",
+						{ type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#bs-example-navbar-collapse-1", "aria-expanded": "false" },
 						React.createElement(
-							"button",
-							{ type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#bs-example-navbar-collapse-1" },
-							React.createElement(
-								"span",
-								{ className: "sr-only" },
-								"Toggle navigation"
-							),
-							React.createElement("span", { className: "icon-bar" }),
-							React.createElement("span", { className: "icon-bar" }),
-							React.createElement("span", { className: "icon-bar" })
-						)
-					),
+							"span",
+							{ className: "sr-only" },
+							"Toggle navigation"
+						),
+						React.createElement("span", { className: "icon-bar" }),
+						React.createElement("span", { className: "icon-bar" }),
+						React.createElement("span", { className: "icon-bar" })
+					)
+				),
+				React.createElement(
+					"div",
+					{ className: "collapse navbar-collapse", id: "bs-example-navbar-collapse-1" },
 					React.createElement(
-						"div",
-						{ className: "collapse navbar-collapse", id: "bs-example-navbar-collapse-1" },
+						"ul",
+						{ className: "nav navbar-nav" },
 						React.createElement(
-							"ul",
-							{ className: "nav navbar-nav" },
+							"li",
+							{ role: "presentation", id: "homenav" },
 							React.createElement(
-								"li",
-								{ role: "presentation", id: "homenav" },
-								React.createElement(
-									"a",
-									{ href: "#home" },
-									"Home"
-								)
-							),
+								"a",
+								{ href: "#home" },
+								"Home"
+							)
+						),
+						React.createElement(
+							"li",
+							{ role: "presentation", id: "findnav" },
 							React.createElement(
-								"li",
-								{ role: "presentation", id: "findnav" },
-								React.createElement(
-									"a",
-									{ href: "#findThingsMap" },
-									"Find things!"
-								)
-							),
+								"a",
+								{ href: "#findThingsMap" },
+								"Find things!"
+							)
+						),
+						React.createElement(
+							"li",
+							{ role: "presentation", id: "listnav" },
 							React.createElement(
-								"li",
-								{ role: "presentation", id: "listnav" },
-								React.createElement(
-									"a",
-									{ href: "#listThings" },
-									"List things!"
-								)
-							),
+								"a",
+								{ href: "#listThings" },
+								"List things!"
+							)
+						),
+						React.createElement(
+							"li",
+							{ role: "presentation", id: "aboutnav" },
 							React.createElement(
-								"li",
-								{ role: "presentation", id: "aboutnav" },
-								React.createElement(
-									"a",
-									{ href: "#aboutUs" },
-									"About us!"
-								)
+								"a",
+								{ href: "#aboutUs" },
+								"About us!"
 							)
 						)
 					)

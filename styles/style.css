@@ -3,8 +3,16 @@ body {
 	/*background-size: cover;*/
 }
 
+#navbar {
+	border-bottom: 1px solid black;
+	position: fixed;
+	width:100%;
+	background-color: black;
+	opacity: 0.9;
+}
+
 .mainheading {
-	font-family: Courier;
+	font-family: Trebuchet MS;
 	
 	/*background-image: url("../images/background.jpg")
 */
@@ -30,7 +38,7 @@ body {
 
 
 #logo {
-	padding-top: 3em;
+	padding-top: 2em;
 	text-shadow:#fff 1px 3px 0, #000 0 -1px 0;
 	font-size: 72px;
 	letter-spacing: -2px;
@@ -57,9 +65,8 @@ body {
 }
 
 #button1 {
-	/*display: inline-block;*/
+	
 	background-color: transparent; !important;
-	/*float: left;*/
 	border: solid white 3px;
 	background-color: black;
 	opacity: 0.7;
@@ -67,9 +74,8 @@ body {
 	padding-top: 33px;
 	width: 250px;
 	height: 100px;
-	/*margin-left: 100px;	*/
 	font-size: 20px;
-	 margin:0 auto;
+	margin:0 auto;
     display:block;
 }
 
@@ -85,9 +91,8 @@ body {
 }
 
 #button2 {
-	/*display: inline-block;*/
-	background-color: transparent; !important;	
-	/*float: right;*/	
+	
+	background-color: transparent; !important;		
 	border: solid white 3px;
 	background-color: black;
 	opacity: 0.7;
@@ -95,10 +100,11 @@ body {
 	padding-top: 33px;
 	width: 250px;
 	height: 100px;
-	/*margin-right: 100px;*/
 	font-size: 20px;
-	 margin:0 auto;
-    display:block;	
+	margin:0 auto;
+    display:block;
+    margin-bottom:50px;
+    margin-top: 20px;	
 
 }
 
@@ -113,127 +119,47 @@ body {
 	    1px  1px 0 #000;
 }
 
-#navbar {
+/*NAV BAR*/
+
+/*#navbar {
 	color: white;
+	font-size: 15px;
 	background-color: black;
 	opacity: 0.9;
 	width:100%;
-	/*margin:0;*/
-   padding:0;
-   position:fixed;
-   top:0;
-   z-index:99;
+    padding:0;
+    position:fixed;
+    top:0;
+    z-index:99;
 	height: 3em;
 	padding-bottom: 1em;
 	border:solid white 1px;
 	border-radius: 10px;
-	/*margin-bottom: 50px;*/
-}
+	
+}*/
 
 #navpills {
 	font-family: Courier New;
 	font-weight: bold;
 	font-color: white;
-	
-	
-
-}
-#goalscircle {
-	margin-top: 20px;
-	text-shadow:
-	    3px 3px 0 #000,
-	   -1px -1px 0 #000,  
-	    1px -1px 0 #000,
-	   -1px  1px 0 #000,
-	    1px  1px 0 #000;
-
 }
 
-#goalsHeading {
-	color:white;
-	font-size:22px;
-	text-shadow:
-	    3px 3px 0 #000,
-	   -1px -1px 0 #000,  
-	    1px -1px 0 #000,
-	   -1px  1px 0 #000,
-	    1px  1px 0 #000;
-	clear: both;
-	margin-top: 150px;
-	margin-bottom: 32px;
-	margin-left: 80px;
 
-}
-
-/*.goals {
-	margin-top: 70px;
-	font-size:14px;
-	border: solid white 2px;
-	border-radius: 50%;
-	width: 150px;
-	height: 150px;
-	
-	padding-top: 60px;
-	clear: both;
+#tmtgoals {
 	color: white;
-
-}*/
-
-#goal1 {
-	display: inline-block;
-	margin-right: 30px;
-	font-size:18px;
+	font-size: 17px;
+	margin-left: 1em;
+	margin-right:  1em;
+	margin-bottom:  2em;
+	background-color: #4D4D4D;
+	opacity: 0.8;
 	border: solid white 2px;
-	border-radius: 50%;
-	width: 120px;
-	height: 120px;
-	padding-top: 36px;
-	clear: both;
-	color: white;
-	margin-left: 80px;
-	padding-left: 30px;
-	background-color: teal;
-	opacity: 0.9;
+	padding-right: 5px;
+	padding-left: 5px;
 }
 
-#goal2 {
-	display: inline-block;
-	
-	font-size:18px;
-	border: solid white 2px;
-	border-radius: 50%;
-	width: 120px;
-	height: 120px;
-	padding-top: 36px;
-	clear: both;
-	color: white;
-	padding-left: 30px;
-	background-color: teal;
-	opacity: 0.9;
-	
-}
 
-#goal3 {
-	display: inline-block;
-	margin-right: 30px;
-	font-size:18px;
-	border: solid white 2px;
-	border-radius: 50%;
-	width: 120px;
-	height: 120px;
-	padding-top: 36px;
-	clear: both;
-	color: white;
-	margin-left: 30px;
-	padding-left: 34px;
-	background-color: teal;
-	opacity: 0.9;
-	
-}
-
-#goalscircle {
-	padding-bottom: 50px;
-}
+/*ABOUT US */
 
 .aboutUsSection {
 	color: white;
@@ -276,6 +202,7 @@ body {
 	overflow: hidden;
 }
 
+
 .listSuccess {
 	color: white;
 	padding-top: 4em;
@@ -284,11 +211,17 @@ body {
 	padding-right: 20px;
 }
 
+/*LIST ITEM*/
+
 .listingform {
 	/*background-image: url("../images/background.jpg");*/
 	background-size: 100% auto;
 	color: white;
 
+}
+
+#listingtitle {
+	margin:0 auto;
 }
 
 #listyouritem {
@@ -337,6 +270,17 @@ body {
 	font-weight: bolder;
 }
 
+#submitlistingbutton:hover {
+	background-color: turquoise;
+	font-weight: bolder;
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
+}
+
 .form-group {
 	font-weight: bolder;
 	font-size: 15px;
@@ -348,7 +292,7 @@ body {
 	line-height: 30px;
 }
 
-
+/*FIND THINGS MAP*/
 
 #map-canvas {
         width: 500px;
@@ -376,10 +320,21 @@ body {
 
 #listingbox {
 	border: 1px solid white;
+	margin: 0 auto;
+	padding-left: 40px;
+	padding-right: 40px;
+
+}
+#listingtitle {
+	/*margin: 0 auto;*/
+	padding-top: 10px;
+	font-size: 26px;
+	margin: 0 auto;
 }
 
 #itemdetailbutton {
 	
+	float: right;
 	margin-bottom: 10px;
 	background-color: black;
 	border:1px solid white;
@@ -403,21 +358,21 @@ body {
 	    1px  1px 0 #000;
 }
 
+#createdat {
+	float:right;
+}
+
 #listingimage {
 	width:160px;
 	height: 200px;
+	margin-bottom: 20px;
 
 }
 
-#listingtitle {
-	font-size: 26px;
-	margin-left: 50px;
-	float: left;
-}
 
 #listingzip {
 	float: right;
-	margin-top: 14px;
+	/*margin-top: 14px;*/
 	margin-right: 40px;
 	font-size: 16px;
 }

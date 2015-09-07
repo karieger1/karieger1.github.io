@@ -24,19 +24,7 @@ module.exports = React.createClass ({
 							</div>
 						</div>
 					</div>
-				<div id="goalscircle">
-					<div id="goalsHeading">TMT's goals are threefold:</div>
-						
-							<div className="container">
-								<div className="row">
-									<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">	
-									<div id="goal1">Reduce<br/> waste</div>
-									<div id="goal2">Help <br/> others</div>
-									<div id ="goal3"> Have <br/> fun</div>
-								</div>	
-							</div>
-					</div>
-				</div>
+				<p id="tmtgoals">TMT has three main goals: To reduce waste, to help those in need, and to bring out the treasure hunter in all of us!</p>
 					
 			</div>
 			
