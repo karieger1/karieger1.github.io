@@ -33727,80 +33727,91 @@ module.exports = React.createClass({
 
 			return React.createElement(
 				'div',
-				{ id: 'renderlistings' },
+				{ id: 'renderlistings', key: ListingModel.cid },
 				React.createElement(
 					'div',
-					{ key: ListingModel.cid },
+					{ className: 'container', id: 'listingbox' },
 					React.createElement(
 						'div',
-						{ className: 'container', id: 'listingbox' },
+						{ className: 'row' },
 						React.createElement(
 							'div',
-							{ className: 'row' },
+							{ className: 'col-xs-10 col-sm-8 col-md-6 col-lg-4' },
 							React.createElement(
-								'div',
-								{ className: 'col-xs-10 col-sm-8 col-md-6 col-lg-4' },
-								React.createElement(
-									'h4',
-									{ id: 'listingtitle' },
-									ListingModel.get('title')
-								)
+								'h4',
+								{ id: 'listingtitle' },
+								ListingModel.get('title')
 							),
 							React.createElement(
-								'div',
-								{ className: 'col-xs-10 col-sm-8 col-md-6 col-lg-4', id: 'listingzip' },
-								React.createElement(
-									'p',
-									null,
-									'Location:  ',
-									ListingModel.get('userZip'),
-									' '
-								)
-							),
-							'// ',
-							React.createElement(
-								'div',
-								{ className: 'col-xs-10 col-sm-8 col-md-6 col-lg-4', id: 'createdat' },
-								'//  ',
-								React.createElement(
-									'p',
-									null,
-									'List date:  jQuery.format.prettyDate(',
-									ListingModel.get('createdAt'),
-									') '
-								),
-								'// '
+								'p',
+								{ id: 'listingzip' },
+								'Location:   ',
+								ListingModel.get('userZip'),
+								' '
 							)
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'row' },
+						React.createElement(
+							'div',
+							{ className: 'col-xs-10 col-sm-8 col-md-6 col-lg-4', id: 'createdat' },
+							React.createElement(
+								'p',
+								null,
+								'Listed at:   ',
+								ListingModel.get('createdAt')
+							)
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'row' },
+						React.createElement(
+							'div',
+							{ className: 'col-xs-10 col-sm-8 col-md-6 col-lg-4', id: 'username' },
+							React.createElement(
+								'p',
+								null,
+								'By: ',
+								ListingModel.get('userName'),
+								' '
+							)
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'row' },
+						React.createElement(
+							'div',
+							{ className: 'col-xs-10 col-s-4 col-md-3 col-lg-3' },
+							React.createElement('img', { id: 'listingimage', src: ListingModel.get('itemImage') })
 						),
 						React.createElement(
 							'div',
-							{ className: 'row' },
+							{ className: 'col-xs-10 col-s-4 col-md-3 col-lg-3' },
 							React.createElement(
 								'div',
-								{ className: 'col-xs-4 col-s-4 col-md-3 col-lg-3' },
-								React.createElement('img', { id: 'listingimage', src: ListingModel.get('itemImage') })
-							),
-							React.createElement(
-								'div',
-								{ className: 'descrip' },
+								{ id: 'descrip' },
 								React.createElement(
 									'p',
 									{ id: 'listingdescr' },
 									ListingModel.get('description')
 								)
 							)
-						),
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'row' },
 						React.createElement(
 							'div',
-							{ className: 'row' },
+							null,
 							React.createElement(
-								'div',
-								null,
-								React.createElement(
-									'a',
-									{ className: 'btn btn-default', id: 'itemdetailbutton', href: '#itemDetail/' + ListingModel.id, role: 'button' },
-									'More details'
-								)
+								'a',
+								{ className: 'btn btn-default', id: 'itemdetailbutton', href: '#itemDetail/' + ListingModel.id, role: 'button' },
+								'More details'
 							)
 						)
 					)
@@ -33967,7 +33978,7 @@ module.exports = React.createClass({
 						{ className: "col-xs-12 col-sm-12 col-md-6 col-lg-6" },
 						React.createElement(
 							"a",
-							{ className: "btn btn-primary btn-lg", id: "button2", href: "#findThingsMap", role: "button" },
+							{ className: "btn btn-primary btn-lg", id: "button2", href: "#findThingsList", role: "button" },
 							"Find things"
 						)
 					)
@@ -33998,6 +34009,7 @@ module.exports = React.createClass({
         var self = this;
         this.props.listings.on('sync', function () {
             var singlelisting = self.props.listings.findWhere({ objectId: self.props.id });
+
             self.setState({ listing: singlelisting });
             console.log('listings sync');
         });
@@ -34032,7 +34044,7 @@ module.exports = React.createClass({
                         React.createElement(
                             'h4',
                             null,
-                            this.listing.get('title')
+                            this.listing.get.title
                         )
                     )
                 )
@@ -34426,8 +34438,8 @@ module.exports = React.createClass({
 					"div",
 					{ className: "navbar-header" },
 					React.createElement(
-						"button",
-						{ type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#bs-example-navbar-collapse-1", "aria-expanded": "false" },
+						"a",
+						{ className: "navbar-toggle" },
 						React.createElement(
 							"span",
 							{ className: "sr-only" },
@@ -34458,7 +34470,7 @@ module.exports = React.createClass({
 							{ role: "presentation", id: "findnav" },
 							React.createElement(
 								"a",
-								{ href: "#findThingsMap" },
+								{ href: "#findThingsList" },
 								"Find things!"
 							)
 						),
@@ -34531,7 +34543,7 @@ var App = Backbone.Router.extend({
 	routes: {
 		'': 'home',
 		'home': 'home',
-		'findThingsMap': 'findThingsMap',
+		// 'findThingsMap':   'findThingsMap',
 		'itemDetail/:id': 'itemDetail',
 		'findThingsList': 'findThingsList',
 		'giverDetail': 'giverDetail',
@@ -34543,12 +34555,15 @@ var App = Backbone.Router.extend({
 	home: function home() {
 		React.render(React.createElement(HomePage, null), containerEl);
 	},
-	findThingsMap: function findThingsMap() {
-		console.log('map of things?');
-		React.render(React.createElement(FindThingsMap, null),
-		//document.getElementById("map-canvas")
-		containerEl);
-	},
+	// findThingsMap: function() {
+	// 	console.log('map of things?')
+	// 	React.render(
+	// 		<FindThingsMap />,
+	// 		//document.getElementById("map-canvas")
+	// 		containerEl
+	// 	);
+
+	// },
 	findThingsList: function findThingsList() {
 		React.render(React.createElement(FindThingsList, { listings: listings,
 			myApp: myApp }), containerEl);

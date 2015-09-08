@@ -20,7 +20,7 @@ module.exports = React.createClass ({
 								<a className="btn btn-primary btn-lg" id="button1" href="#listThings" role="button">Get rid of things</a>
 							</div>
 							<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-								<a className="btn btn-primary btn-lg" id="button2" href="#findThingsMap" role="button">Find things</a>
+								<a className="btn btn-primary btn-lg" id="button2" href="#findThingsList" role="button">Find things</a>
 							</div>
 						</div>
 					</div>

@@ -13,48 +13,51 @@ module.exports = React.createClass({
 				})
 			},
 
-		
-
 	render: function() {
 			var listEls = this.props.listings.map(function(ListingModel) {
 				
 				return (
 					
-				<div id="renderlistings">
+					<div id="renderlistings" key={ListingModel.cid}>
 
-					<div key={ListingModel.cid}>
 						<div className="container" id="listingbox">
 							<div className="row">
 								<div className="col-xs-10 col-sm-8 col-md-6 col-lg-4">
 										<h4 id="listingtitle">{ListingModel.get("title")}</h4>
+										<p id="listingzip">Location:   {ListingModel.get("userZip")} </p>
 								</div>
 							
-								<div className="col-xs-10 col-sm-8 col-md-6 col-lg-4" id="listingzip">
-									<p>Location:  {ListingModel.get("userZip")} </p>
+							</div>
+							<div className="row">
+								<div className="col-xs-10 col-sm-8 col-md-6 col-lg-4" id="createdat">
+									<p>Listed at:   {ListingModel.get("createdAt")}</p>
 								</div>
-								// <div className="col-xs-10 col-sm-8 col-md-6 col-lg-4" id="createdat">
-								// 	<p>List date:  jQuery.format.prettyDate({ListingModel.get("createdAt")}) </p>
-								// </div>
+							</div>
+							<div className="row">
+								<div className="col-xs-10 col-sm-8 col-md-6 col-lg-4" id="username">
+									<p>By: {ListingModel.get("userName")} </p>
+								</div>
 							</div>
 
 							<div className="row">
-								<div className="col-xs-4 col-s-4 col-md-3 col-lg-3">
+								<div className="col-xs-10 col-s-4 col-md-3 col-lg-3">
 										<img id="listingimage" src={ListingModel.get("itemImage")} />
 								</div>
-
-								<div className="descrip">
-									<p id="listingdescr">{ListingModel.get("description")}</p>
+								<div className="col-xs-10 col-s-4 col-md-3 col-lg-3">
+									<div id="descrip">
+										<p id="listingdescr">{ListingModel.get("description")}</p>
+									</div>
 								</div>
+								
 							</div>
-
 							<div className="row">
 								<div>
 									<a className="btn btn-default" id="itemdetailbutton" href={'#itemDetail/'+ListingModel.id} role="button">More details</a>
 								</div>
 							</div>
 						</div>
+						
 					</div>
-				</div>
 				
 				);
 			});

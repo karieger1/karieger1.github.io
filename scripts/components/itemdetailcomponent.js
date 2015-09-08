@@ -11,6 +11,7 @@ module.exports = React.createClass({
             var self = this;
             this.props.listings.on("sync", function(){
                 var singlelisting = self.props.listings.findWhere({objectId: self.props.id});
+
                 self.setState ({listing: singlelisting})
                 console.log('listings sync');
             })    
@@ -34,7 +35,7 @@ module.exports = React.createClass({
                         <h2 id="listingheading">Listing details:</h2>
                             <div className="row">
                                  <div id="itemdetail" className="col-xs-12 col-s-8 col-s-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-                                     <h4>{this.listing.get("title")}</h4>
+                                     <h4>{this.listing.get.title}</h4>
                                 </div>
                             </div>
    

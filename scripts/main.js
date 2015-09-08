@@ -32,7 +32,7 @@ var App = Backbone.Router.extend({
 	routes: {
 		'': 		       'home',
 		'home': 		   'home',
-		'findThingsMap':   'findThingsMap',
+		// 'findThingsMap':   'findThingsMap',
 		'itemDetail/:id': 	'itemDetail',
 		'findThingsList':  'findThingsList',
 		'giverDetail':     'giverDetail',
@@ -48,15 +48,15 @@ var App = Backbone.Router.extend({
 		 	
 		 );
 	},
-	findThingsMap: function() {
-		console.log('map of things?')
-		React.render(
-			<FindThingsMap />,
-			//document.getElementById("map-canvas")
-			containerEl
-		);
+	// findThingsMap: function() {
+	// 	console.log('map of things?')
+	// 	React.render(
+	// 		<FindThingsMap />,
+	// 		//document.getElementById("map-canvas")
+	// 		containerEl
+	// 	);
 	
-	},
+	// },
 	findThingsList: function() {
 		React.render(
 			<FindThingsList listings ={listings}
