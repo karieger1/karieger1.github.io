@@ -69,6 +69,7 @@ body {
 #tmt {
 	color: white;
 	margin-bottom: 20px;
+	font-size: 17px;
 }
 
 #button1 {
@@ -405,11 +406,6 @@ body {
 	color: white;
 }
 
-/*ITEM DETAIL COMPONENT*/
-
-#listingdetailbox {
-	border: solid white 1px;
-}
 
 /*LIST SUCCESS*/
 
@@ -427,13 +423,26 @@ body {
 
 /*ITEM DETAIL COMPONENT*/
 
+#listingdetailbox {
+	border: solid white 3px;
+	border-radius: 50px;
+	padding-left: 50px;
+	padding-right: 50px;
+	/*margin: 5px;*/
+}
+
+
+
 #listingheading {
 	/*margin-left: 10px;*/
+	margin-bottom: 10px;
 }
 
 #itemtitle {
 	text-align: center;
 	font-size: 22px;
+	border-bottom: 1px solid white;
+	padding-bottom: 10px;
 }
 
 #username {
@@ -441,5 +450,16 @@ body {
 }
 
 #listphoto {
-	/*float: right;*/
+	float: right;
+	width:200px;
+	height: 240px;
 }
+
+#itemcond {
+	float: right;
+}
+
+#itemdescription {
+	float:right;
+}
+

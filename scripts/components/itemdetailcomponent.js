@@ -11,11 +11,9 @@ module.exports = React.createClass({
             var self = this;
             this.props.listings.on("sync", function(){
                 var singlelisting = self.props.listings.findWhere({objectId: self.props.id});
-                console.log(singlelisting);
+                
                 self.setState ({listing: singlelisting})
-                console.log('listings sync');
             })    
-            console.log(this.props.id)
 
         }, 
 
@@ -33,15 +31,9 @@ module.exports = React.createClass({
         return (
             <div id="renderlistingdetail">
 
-                <div className="container"> 
-                        <div className="row">
-                            <div id="itemdetail" className="col-xs-12 col-s-8 col-md-6 col-lg-6 ">
-                                <h2 id="listingheading">Listing details:</h2>
-                            </div>
-                        </div>
-                </div>
+             
 
-                 <div className="container" id="listingdetailbox"> 
+                <div className="container" id="listingdetailbox"> 
                     <div className="row">
                          <div className="col-xs-12 col-s-8 col-s-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
                              <h4 id ="itemtitle">{this.state.listing.get("title")} </h4>
@@ -49,10 +41,25 @@ module.exports = React.createClass({
                     </div>
                     <div className="row">
                         <div className="col-xs-12 col-s-6 col-md-6 col-lg-6">
-                            <p id="username">Giver:  {this.state.listing.get("userName")}</p>
+                            <p id="username"><strong>Giver:</strong>  {this.state.listing.get("userName")}</p>
                         </div>
+                    
                         <div className="col-xs-12 col-s-6 col-md-6 col-lg-6">
-                            <p id="listphoto"> {this.state.listing.get("itemImage")}</p>
+                            <img id="listphoto" src={this.state.listing.get("itemImage")} />
+                            <p id="giveremail"><strong>Email address:</strong>  {this.state.listing.get("userEmail")}</p>
+                            <p id="giverphone"><strong>Contact number:</strong>  {this.state.listing.get("userPhone")}</p>
+                            <p id="giveraddress"><strong>Located at:</strong>  {this.state.listing.get("userAddress")}</p>
+                            <p id="giverzip"><strong>Zip:</strong>  {this.state.listing.get("userZip")}</p>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-xs-12 col-s-6 col-md-6 col-lg-6" id="itemitemdetails">
+                            <p id="itemcond"><strong>Item condition:</strong>  {this.state.listing.get("itemCondition")}</p>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-xs-12 col-s-6 col-md-6 col-lg-6" id="itemitemdetails">        
+                            <p id="itemdescription"><strong>Item description:</strong>  {this.state.listing.get("description")}</p>
                         </div>
                     </div>
                 </div>

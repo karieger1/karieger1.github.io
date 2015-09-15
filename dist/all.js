@@ -34009,11 +34009,9 @@ module.exports = React.createClass({
         var self = this;
         this.props.listings.on('sync', function () {
             var singlelisting = self.props.listings.findWhere({ objectId: self.props.id });
-            console.log(singlelisting);
+
             self.setState({ listing: singlelisting });
-            console.log('listings sync');
         });
-        console.log(this.props.id);
     },
 
     getInitialState: function getInitialState() {
@@ -34034,23 +34032,6 @@ module.exports = React.createClass({
         return React.createElement(
             'div',
             { id: 'renderlistingdetail' },
-            React.createElement(
-                'div',
-                { className: 'container' },
-                React.createElement(
-                    'div',
-                    { className: 'row' },
-                    React.createElement(
-                        'div',
-                        { id: 'itemdetail', className: 'col-xs-12 col-s-8 col-md-6 col-lg-6 ' },
-                        React.createElement(
-                            'h2',
-                            { id: 'listingheading' },
-                            'Listing details:'
-                        )
-                    )
-                )
-            ),
             React.createElement(
                 'div',
                 { className: 'container', id: 'listingdetailbox' },
@@ -34077,18 +34058,100 @@ module.exports = React.createClass({
                         React.createElement(
                             'p',
                             { id: 'username' },
-                            'Giver:  ',
+                            React.createElement(
+                                'strong',
+                                null,
+                                'Giver:'
+                            ),
+                            '  ',
                             this.state.listing.get('userName')
                         )
                     ),
                     React.createElement(
                         'div',
                         { className: 'col-xs-12 col-s-6 col-md-6 col-lg-6' },
+                        React.createElement('img', { id: 'listphoto', src: this.state.listing.get('itemImage') }),
                         React.createElement(
                             'p',
-                            { id: 'listphoto' },
-                            ' ',
-                            this.state.listing.get('itemImage')
+                            { id: 'giveremail' },
+                            React.createElement(
+                                'strong',
+                                null,
+                                'Email address:'
+                            ),
+                            '  ',
+                            this.state.listing.get('userEmail')
+                        ),
+                        React.createElement(
+                            'p',
+                            { id: 'giverphone' },
+                            React.createElement(
+                                'strong',
+                                null,
+                                'Contact number:'
+                            ),
+                            '  ',
+                            this.state.listing.get('userPhone')
+                        ),
+                        React.createElement(
+                            'p',
+                            { id: 'giveraddress' },
+                            React.createElement(
+                                'strong',
+                                null,
+                                'Located at:'
+                            ),
+                            '  ',
+                            this.state.listing.get('userAddress')
+                        ),
+                        React.createElement(
+                            'p',
+                            { id: 'giverzip' },
+                            React.createElement(
+                                'strong',
+                                null,
+                                'Zip:'
+                            ),
+                            '  ',
+                            this.state.listing.get('userZip')
+                        )
+                    )
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'row' },
+                    React.createElement(
+                        'div',
+                        { className: 'col-xs-12 col-s-6 col-md-6 col-lg-6', id: 'itemitemdetails' },
+                        React.createElement(
+                            'p',
+                            { id: 'itemcond' },
+                            React.createElement(
+                                'strong',
+                                null,
+                                'Item condition:'
+                            ),
+                            '  ',
+                            this.state.listing.get('itemCondition')
+                        )
+                    )
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'row' },
+                    React.createElement(
+                        'div',
+                        { className: 'col-xs-12 col-s-6 col-md-6 col-lg-6', id: 'itemitemdetails' },
+                        React.createElement(
+                            'p',
+                            { id: 'itemdescription' },
+                            React.createElement(
+                                'strong',
+                                null,
+                                'Item description:'
+                            ),
+                            '  ',
+                            this.state.listing.get('description')
                         )
                     )
                 )
