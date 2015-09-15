@@ -390,10 +390,6 @@ body {
 
 }
 
-#listingheading {
-	margin-left: 100px;
-}
-
 #giverinfo {
 	float: right;
 	margin-bottom: 10px;
@@ -427,4 +423,23 @@ body {
 	padding-right: 40px;
 	padding-left: 40px;
 
+}
+
+/*ITEM DETAIL COMPONENT*/
+
+#listingheading {
+	/*margin-left: 10px;*/
+}
+
+#itemtitle {
+	text-align: center;
+	font-size: 22px;
+}
+
+#username {
+	float: left;
+}
+
+#listphoto {
+	/*float: right;*/
 }

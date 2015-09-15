@@ -34009,7 +34009,7 @@ module.exports = React.createClass({
         var self = this;
         this.props.listings.on('sync', function () {
             var singlelisting = self.props.listings.findWhere({ objectId: self.props.id });
-
+            console.log(singlelisting);
             self.setState({ listing: singlelisting });
             console.log('listings sync');
         });
@@ -34017,34 +34017,78 @@ module.exports = React.createClass({
     },
 
     getInitialState: function getInitialState() {
-
-        return { listing: {} };
+        return { listing: false };
     },
 
     render: function render() {
         console.log(this.state.listing);
+
+        if (this.state.listing === false) {
+            return React.createElement(
+                'div',
+                { className: 'loadingdiv' },
+                'Loading...'
+            );
+        };
 
         return React.createElement(
             'div',
             { id: 'renderlistingdetail' },
             React.createElement(
                 'div',
+                { className: 'container' },
+                React.createElement(
+                    'div',
+                    { className: 'row' },
+                    React.createElement(
+                        'div',
+                        { id: 'itemdetail', className: 'col-xs-12 col-s-8 col-md-6 col-lg-6 ' },
+                        React.createElement(
+                            'h2',
+                            { id: 'listingheading' },
+                            'Listing details:'
+                        )
+                    )
+                )
+            ),
+            React.createElement(
+                'div',
                 { className: 'container', id: 'listingdetailbox' },
                 React.createElement(
-                    'h2',
-                    { id: 'listingheading' },
-                    'Listing details:'
+                    'div',
+                    { className: 'row' },
+                    React.createElement(
+                        'div',
+                        { className: 'col-xs-12 col-s-8 col-s-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3' },
+                        React.createElement(
+                            'h4',
+                            { id: 'itemtitle' },
+                            this.state.listing.get('title'),
+                            ' '
+                        )
+                    )
                 ),
                 React.createElement(
                     'div',
                     { className: 'row' },
                     React.createElement(
                         'div',
-                        { id: 'itemdetail', className: 'col-xs-12 col-s-8 col-s-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3' },
+                        { className: 'col-xs-12 col-s-6 col-md-6 col-lg-6' },
                         React.createElement(
-                            'h4',
-                            null,
-                            this.listing.get.title
+                            'p',
+                            { id: 'username' },
+                            'Giver:  ',
+                            this.state.listing.get('userName')
+                        )
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'col-xs-12 col-s-6 col-md-6 col-lg-6' },
+                        React.createElement(
+                            'p',
+                            { id: 'listphoto' },
+                            ' ',
+                            this.state.listing.get('itemImage')
                         )
                     )
                 )
@@ -34052,8 +34096,6 @@ module.exports = React.createClass({
         );
     }
 });
-
-//build out html here
 
 },{"../../node_modules/underscore/underscore-min.js":161,"../collections/listingCollection":163,"../models/ListingModel":175,"jquery":5,"react":160}],170:[function(require,module,exports){
 'use strict';
